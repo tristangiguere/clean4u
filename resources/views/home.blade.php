@@ -2,34 +2,27 @@
 <html lang="fr">
 @extends('layouts.head')
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-{{--            <img class="navbar-brand" src="img/logo.png" alt="logo">--}}
-            <a class="navbar-brand" href="#">Moz-Art Polissage</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Services</a> </li>
-                <li><a href="#">Sousmissions</a></li>
-                <li><a href="#">Contactez-nous</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="">
+            <img style="width: 10%; height: 10%;" src="img/logo.png" alt="logo"/> Moz-Art</a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small w3-padding">
+            <a href="" class="w3-bar-item w3-button">Home</a>
+            <a href="" class="w3-bar-item w3-button">Services</a>
+            <a href="" class="w3-bar-item w3-button">Sousmissions</a>
+            <a href="" class="w3-bar-item w3-button">Contactez-nous</a>
         </div>
     </div>
-</nav>
-    <div class="title">
-        <h1>Moz-Art Polissage</h1>
-        <p>Scroll for more!</p>
+</div>
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+    <img class="w3-image w3-opacity-min" src="img/R.png" alt="Car" width="1500" height="800">
+    <div class="w3-display-middle w3-margin-top w3-center">
+        <h1 class="w3-xxlarge w3-text-white">
+            <span class="w3-padding w3-black w3-opacity-min"><b>L'art du polissage</b>
+            </span> <br><br><span class="w3-hide-small w3-text-light-grey">Entreprise locale 100% québécoise!</span></h1>
     </div>
+</header>
 
 
 
