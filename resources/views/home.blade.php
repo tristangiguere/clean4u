@@ -11,7 +11,7 @@
             <a href="" class="w3-bar-item w3-button">Home</a>
             <a href="" class="w3-bar-item w3-button">Services</a>
             <a href="" class="w3-bar-item w3-button">Sousmissions</a>
-            <a href="" class="w3-bar-item w3-button">Contactez-nous</a>
+            <a href="/contact" class="w3-bar-item w3-button">Contactez-nous</a>
         </div>
     </div>
 </div>
