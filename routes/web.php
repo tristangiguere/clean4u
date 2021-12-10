@@ -29,6 +29,10 @@ Route::get('/sousmissions', function(){
     return view('sousmissions');
 });
 
+Route::get('/login', function (){
+    return view('login');
+});
+
 
 //Auth::routes();
 //
