@@ -22,8 +22,14 @@
                         <label>Courriel</label>
                         <input class="w3-input w3-border" type="text" placeholder="Adresse courriel" name="email" required>
                     </div>
+                    <div class="w3-half w3-margin-bottom">
+                        <label>Numéro de téléphone</label>
+                        <input class="w3-input w3-border" type="text" placeholder="Numéro de téléphone" name="phone" required>
+                </div>
+        </div>
+                <div class="w3-row-padding" style="margin:8px -16px;">
                     <div class="w3-half">
-                       <label for="exampleFormControlSelect1">Sélectionnez le type de véhicule</label>
+                        <label for="exampleFormControlSelect1">Sélectionnez le type de véhicule</label>
                         <select class="form-control" id="exampleFormControlSelect1">
                             <option>Voiture</option>
                             <option>Bateau</option>
@@ -31,7 +37,20 @@
                             <option>Motorisé</option>
                         </select>
                     </div>
+                    <div class="w3-half w3-margin-bottom">
+                        <label>Année</label>
+                        <input class="w3-input w3-border" type="text" placeholder="Année" name="year" required>
+                    </div>
                 </div>
+                <div class="w3-row-padding" style="margin:8px -16px;">
+                    <div class="w3-margin-bottom">
+                        <label>Description des services demandés</label>
+                        <textarea class="w3-input w3-border" type="text" name="description" required>
+                        </textarea>
+                    </div>
+                </div>
+
+
                 <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-send-o w3-margin-right"></i> Envoyer</button>
             </form>
         </div>
