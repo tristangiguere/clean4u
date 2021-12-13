@@ -74,7 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         }
         echo "<p>Connected Successfully</p>";
 
-        $sqlQuery = "INSERT INTO Quote_Requests (FirstName, LastName, Email, PhoneNumber, VehicleType, Manufacturer, VehicleModel, VehicleYear, ServicesDescription) VALUES ('$fname', '$lname', '$email', '$phone', '$type', '$make', '$model', '$year', '$services');";
+        $sqlQuery = "INSERT INTO Quote_Requests (FirstName, LastName, Email, PhoneNumber, VehicleType, VehicleMake, VehicleModel, VehicleYear, ServicesDescription) VALUES ('$fname', '$lname', '$email', '$phone', '$type', '$make', '$model', '$year', '$services');";
         $result = $conn->query($sqlQuery);
 
         if ($conn->query($sqlQuery) === TRUE) {
@@ -93,15 +93,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <h2><i class="fa fa-car w3-margin-right"></i>Votre soumission</h2>
         </div>
         <div class="w3-container w3-white w3-padding-16">
-            <form action="/action_page.php" target="_blank">
+            <form action="/sousmissions.blade.php" method="post" target="_blank">
                 <div class="w3-row-padding" style="margin:0 -16px;">
                     <div class="w3-half w3-margin-bottom">
                         <label><i class="fa"></i>Nom</label>
-                        <input class="w3-input w3-border" type="text" placeholder="Nom" name="nom" required>
+                        <input class="w3-input w3-border" type="text" placeholder="Nom" name="lname" required>
                     </div>
                     <div class="w3-half">
                         <label><i class="fa"></i>Prénom</label>
-                        <input class="w3-input w3-border" type="text" placeholder="Prénom" name="prenom" required>
+                        <input class="w3-input w3-border" type="text" placeholder="Prénom" name="fname" required>
                     </div>
                 </div>
                 <div class="w3-row-padding" style="margin:8px -16px;">
@@ -117,7 +117,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 <div class="w3-row-padding" style="margin:8px -16px;">
                     <div class="w3-quarter">
                         <label for="exampleFormControlSelect1">Véhicule</label>
-                        <select class="w3-input" id="exampleFormControlSelect1">
+                        <select name="type" class="w3-input">
                             <option>Voiture</option>
                             <option>Bateau</option>
                             <option>Moto</option>
@@ -130,17 +130,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                     </div>
                     <div class="w3-quarter w3-margin-bottom">
                     <label>Marque</label>
-                    <input class="w3-input w3-border" type="text" placeholder="Marque" name="year" required>
+                    <input class="w3-input w3-border" type="text" placeholder="Marque" name="make" required>
                     </div>
                     <div class="w3-quarter w3-margin-bottom">
                         <label>Modèle</label>
-                        <input class="w3-input w3-border" type="text" placeholder="Modèle" name="year" required>
+                        <input class="w3-input w3-border" type="text" placeholder="Modèle" name="model" required>
                     </div>
                 </div>
                 <div class="w3-row-padding" style="margin:8px -16px;">
                     <div class="w3-margin-bottom">
                         <label>Description des services demandés</label>
-                        <textarea class="w3-input w3-border" type="text" name="description" required>
+                        <textarea class="w3-input w3-border" type="text" name="service" required>
                         </textarea>
                     </div>
                 </div>
