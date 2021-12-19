@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuotationRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,15 @@ Route::get('/services', function(){
     return view('services');
 });
 
-Route::get('/sousmissions', function(){
-    return view('sousmissions');
-});
+//Route::get('/sousmissions', function(){
+//    return view('sousmissions');
+//});
+
+Route::view('sousmission', 'sousmissions');
+
+Route::post('sousmission', [QuotationRequestController::class,'addData']);
+
+Route::prefix('user')->namespace('User')->name('user.')->middleware(['auth', 'isUser'])->group(base_path('/routes/user/user.php'));
 
 Route::get('/login', function (){
     return view('login');
