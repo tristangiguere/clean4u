@@ -40,4 +40,16 @@ Route::post('auth/login', [CustomAuthController::class, 'customLogin']);
 Route::get('auth/dashboard', [CustomAuthController::class, 'dashboard']);
 Route::get('', [CustomAuthController::class, 'signOut']);
 
+Route::get('/admindashboard', function (){
+    return view('/admin/dashboard');
+})->middleware('authenticated');
+
+
+//Auth::routes();
+//
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

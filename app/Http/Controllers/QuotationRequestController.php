@@ -21,6 +21,5 @@ class QuotationRequestController extends Controller
         $quotationRequest->email=$req->email;
         $quotationRequest->save();
         return redirect('sousmission');
-
     }
 }

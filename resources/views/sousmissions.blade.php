@@ -61,7 +61,7 @@
                 </div>
 
 
-                <button class="w3-button w3-black" type="submit"><i class="fa fa-send-o w3-margin-right"></i> Envoyer</button>
+                <button class="w3-button w3-black" type="submit" name="send"><i class="fa fa-send-o w3-margin-right"></i> Envoyer</button>
             </form>
         </div>
     </div>
