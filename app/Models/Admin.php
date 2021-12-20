@@ -12,6 +12,6 @@ class Admin extends Authenticated
 {
     use Notifiable;
 
-    protected $table = 'admins';
+    protected $table = 'admin';
     protected $guarded = array();
 }

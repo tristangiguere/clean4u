@@ -45,12 +45,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('mozart.tristangiguere.com'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'clientFacingWeb'),
-            'username' => env('DB_USERNAME', 'webapp'),
-            'password' => env('DB_PASSWORD', 'wobeE7we2wMosRXwszPJ3pZYh3TBERSFZVtZoLtsGxcW'),
+            'database' => env('DB_DATABASE', 'mozart'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'M0z4rt$'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

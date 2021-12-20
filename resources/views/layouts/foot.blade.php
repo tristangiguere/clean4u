@@ -10,5 +10,5 @@
         <i class="fa fa-twitter w3-hover-opacity"></i>
         <i class="fa fa-linkedin w3-hover-opacity"></i>
     </div>
-    <p>&copy; <?php echo date("Y"); ?> <a href="#" title="W3.CSS" target="_blank" class="w3-hover-text-green">Moz-Art. All Rights Reserved.</a></p>
+    <p>&copy; <?php echo date("Y"); ?> <a href="#" title="W3.CSS" target="_blank" class="w3-hover-text-green w3-text-white">Moz-Art. All Rights Reserved.</a></p>
 </footer>
