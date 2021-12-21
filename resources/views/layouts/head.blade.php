@@ -30,7 +30,7 @@
             <a href="/services" class="w3-bar-item w3-button">Services</a>
             <a href="/sousmission" class="w3-bar-item w3-button">Soumissions</a>
             <a href="/contact" class="w3-bar-item w3-button">Contactez-nous</a>
-            <a href="/hello"><span class=" w3-bar-item glyphicon glyphicon-user"></span></a>
+            <a href="/login"><span class=" w3-bar-item glyphicon glyphicon-user"></span></a>
         </div>
     </div>
 </div>
