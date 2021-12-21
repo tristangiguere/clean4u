@@ -26,11 +26,11 @@
             <img style="width: 10%; height: 10%;" src="img/logo.png" alt="logo"/> MOZ-ART</a>
         <!-- Float links to the right. Hide them on small screens -->
         <div class="w3-right w3-hide-small w3-padding">
-            <a href="/" class="w3-bar-item w3-button">Home</a>
+            <a href="/accueil" class="w3-bar-item w3-button">Home</a>
             <a href="/services" class="w3-bar-item w3-button">Services</a>
             <a href="/sousmission" class="w3-bar-item w3-button">Soumissions</a>
             <a href="/contact" class="w3-bar-item w3-button">Contactez-nous</a>
-            <a href="/auth/login"><span class=" w3-bar-item glyphicon glyphicon-user"></span></a>
+            <a href="/hello"><span class=" w3-bar-item glyphicon glyphicon-user"></span></a>
         </div>
     </div>
 </div>

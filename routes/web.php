@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomAuthController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuotationRequestController;
 
@@ -15,8 +16,12 @@ use App\Http\Controllers\QuotationRequestController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/hello', function () {
     return view('home');
+});
+
+Route::get('/accueil', function () {
+    return view('accueil');
 });
 
 Route::get('/contact', function(){
@@ -27,29 +32,24 @@ Route::get('/services', function(){
     return view('services');
 });
 
+Route::get('/admin', function(){
+    return view('admin.dashboard');
+});
+
 Route::view('sousmission', 'sousmissions');
 
 Route::post('sousmission', [QuotationRequestController::class,'addData']);
 
-//Route::get('/dashboard', function (){
-//    return view('dashboard');
-//});
+//Route::get('auth/login', [CustomAuthController::class, 'index']);
+//Route::post('auth/login', [CustomAuthController::class, 'customLogin']);
+//Route::get('auth/dashboard', [CustomAuthController::class, 'dashboard'])->middleware('authenticated');
+//Route::get('', [CustomAuthController::class, 'signOut']);
 
-Route::get('auth/login', [CustomAuthController::class, 'index']);
-Route::post('auth/login', [CustomAuthController::class, 'customLogin']);
-Route::get('auth/dashboard', [CustomAuthController::class, 'dashboard']);
-Route::get('', [CustomAuthController::class, 'signOut']);
-
-Route::get('/admindashboard', function (){
-    return view('/admin/dashboard');
-})->middleware('authenticated');
-
-
-//Auth::routes();
-//
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/admindashboard', function (){
+//    return view('/admin/dashboard');
+//})->middleware('authenticated');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
