@@ -1,23 +1,16 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
+@extends('layouts.head')
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+    <img class="w3-image w3-opacity-min" src="img/R.png" alt="Car" width="1500" height="800">
+    <div class="w3-display-middle w3-margin-top w3-center">
+        <h1 class="w3-xxlarge w3-text-white">
+        <?php
+$user = Auth::user();
+echo $user;
+?>
+            <span class="w3-padding w3-black w3-opacity-min"><b>L'art du polissage</b>
+            </span> <br><br><span class="w3-hide-small w3-text-light-grey">Entreprise locale 100% québécoise!</span></h1>
     </div>
-</div>
-@endsection
+</header>
+
+
+@extends('layouts.foot')
