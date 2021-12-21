@@ -35,6 +35,7 @@ class AddQuotationDBTest extends TestCase
         'phone'=>$mockRequest->phone, 'type'=>$mockRequest->type, 'year'=>$mockRequest->year, 'make'=>$mockRequest->make, 'model'=>$mockRequest->model, 'services'=>$mockRequest->services]);
     }
 
+
     public function testAddQuotationRequestToDbError()
     {
         // Create mock request.
@@ -54,3 +55,4 @@ class AddQuotationDBTest extends TestCase
             'phone'=>$mockRequest->bad_phone, 'type'=>$mockRequest->bad_type, 'year'=>$mockRequest->bad_year, 'make'=>$mockRequest->bad_make, 'model'=>$mockRequest->bad_model, 'services'=>$mockRequest->bad_services]);
     }
 }
+

@@ -12,12 +12,13 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function test_home_route()
+    public function test_example()
     {
         $response = $this->get('/accueil');
 
         $response->assertStatus(200);
     }
+
 
     public function test_services_route()
     {
@@ -46,4 +47,5 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
 }
