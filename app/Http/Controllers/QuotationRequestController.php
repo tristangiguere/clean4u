@@ -13,7 +13,7 @@ class QuotationRequestController extends Controller
         $quotationRequest->first_name=$req->first_name;
         $quotationRequest->last_name=$req->last_name;
         $quotationRequest->phone=$req->phone;
-        $quotationRequest->vehicle=$req->vehicle;
+        $quotationRequest->type=$req->type;
         $quotationRequest->year=$req->year;
         $quotationRequest->make=$req->make;
         $quotationRequest->model=$req->model;
