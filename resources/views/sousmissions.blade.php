@@ -32,7 +32,7 @@
                 <div class="w3-row-padding" style="margin:8px -16px;">
                     <div class="w3-quarter">
                         <label for="exampleFormControlSelect1">Véhicule</label>
-                        <select name="vehicle" class="w3-input">
+                        <select name="type" class="w3-input">
                             <option>Voiture</option>
                             <option>Bateau</option>
                             <option>Moto</option>

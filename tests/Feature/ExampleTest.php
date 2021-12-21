@@ -14,7 +14,7 @@ class ExampleTest extends TestCase
      */
     public function test_home_route()
     {
-        $response = $this->get('/');
+        $response = $this->get('/accueil');
 
         $response->assertStatus(200);
     }
@@ -42,7 +42,7 @@ class ExampleTest extends TestCase
 
     public function test_login_route()
     {
-        $response = $this->get('/auth/login');
+        $response = $this->get('/login');
 
         $response->assertStatus(200);
     }

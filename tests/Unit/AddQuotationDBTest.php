@@ -20,7 +20,7 @@ class AddQuotationDBTest extends TestCase
         $mockRequest->first_name='Tristsan';
         $mockRequest->last_name='Giguere';
         $mockRequest->phone='5145145144';
-        $mockRequest->vehicle='Car';
+        $mockRequest->type='Car';
         $mockRequest->year=1944;
         $mockRequest->make='Volkswagen';
         $mockRequest->model='Passat';
@@ -32,28 +32,25 @@ class AddQuotationDBTest extends TestCase
 
         // Assert that the request is in the database
         $this->assertDatabaseHas('quotation_requests',['first_name'=>$mockRequest->first_name, 'last_name'=>$mockRequest->last_name, 'email'=>$mockRequest->email,
-        'phone'=>$mockRequest->phone, 'vehicle'=>$mockRequest->vehicle, 'year'=>$mockRequest->year, 'make'=>$mockRequest->make, 'model'=>$mockRequest->model, 'services'=>$mockRequest->services]);
+        'phone'=>$mockRequest->phone, 'type'=>$mockRequest->type, 'year'=>$mockRequest->year, 'make'=>$mockRequest->make, 'model'=>$mockRequest->model, 'services'=>$mockRequest->services]);
     }
 
     public function testAddQuotationRequestToDbError()
     {
         // Create mock request.
         $mockRequest = new Request;
-        $mockRequest->bad_first_name= null;
-        $mockRequest->bad_last_name= null;
+        $mockRequest->bad_first_name='boy';
+        $mockRequest->bad_last_name= 'boy';
         $mockRequest->bad_phone='allo';
-        $mockRequest->bad_vehicle= null;
+        $mockRequest->bad_type= 'boy';
         $mockRequest->bad_year='blue';
-        $mockRequest->bad_make= null;
-        $mockRequest->bad_model= null;
-        $mockRequest->bad_services= null;
+        $mockRequest->bad_make= 'boy';
+        $mockRequest->bad_model= 'boy';
+        $mockRequest->bad_services= 'boy';
         $mockRequest->bad_email='allo';
-
-        // Add the request to the database
-        app('App\Http\Controllers\QuotationRequestController')->addData($mockRequest);
 
         // Assert that the request is in the database
         $this->assertDatabaseMissing('quotation_requests',['first_name'=>$mockRequest->bad_first_name, 'last_name'=>$mockRequest->bad_last_name, 'email'=>$mockRequest->bad_email,
-            'phone'=>$mockRequest->bad_phone, 'vehicle'=>$mockRequest->bad_vehicle, 'year'=>$mockRequest->bad_year, 'make'=>$mockRequest->bad_make, 'model'=>$mockRequest->bad_model, 'services'=>$mockRequest->bad_services]);
+            'phone'=>$mockRequest->bad_phone, 'type'=>$mockRequest->bad_type, 'year'=>$mockRequest->bad_year, 'make'=>$mockRequest->bad_make, 'model'=>$mockRequest->bad_model, 'services'=>$mockRequest->bad_services]);
     }
 }
