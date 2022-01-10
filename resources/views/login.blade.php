@@ -40,7 +40,7 @@
                                         </div>
 
                                         <div class="pt-1 mb-4">
-                                            <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                                            <button class="btn btn-dark btn-lg btn-block" name="submit" type="submit">Login</button>
                                         </div>
                                         <a href="/">Retour à l'accueil</a>
                                     </form>
