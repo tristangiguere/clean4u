@@ -4,6 +4,7 @@ use App\Http\Controllers\CustomAuthController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuotationRequestController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,8 @@ Route::get('/accueil', function () {
     return view('accueil');
 });
 
-Route::get('/contact', function(){
-    return view('contact');
+Route::get('/', function () {
+    return view('accueil');
 });
 
 Route::get('/services', function(){
@@ -39,6 +40,13 @@ Route::get('/admin', function(){
 Route::view('sousmission', 'sousmissions');
 
 Route::post('sousmission', [QuotationRequestController::class,'addData']);
+
+Route::post('contact', [MailController::class,'sendEmail']);
+
+Route::get('/contact', function(){
+    return view('contact');
+});
+
 
 //Route::get('auth/login', [CustomAuthController::class, 'index']);
 //Route::post('auth/login', [CustomAuthController::class, 'customLogin']);
