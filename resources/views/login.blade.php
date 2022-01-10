@@ -42,11 +42,11 @@
                                         <input type="password" id="form2Example27" class="form-control form-control-lg" />
                                     </div>
 
-                                    <div class="pt-1 mb-4">
-                                        <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
-                                    </div>
-                                    <a href="/">Retour à l'accueil</a>
-                                </form>
+                                        <div class="pt-1 mb-4">
+                                            <button class="btn btn-dark btn-lg btn-block" name="submit" type="submit">Login</button>
+                                        </div>
+                                        <a href="/">Retour à l'accueil</a>
+                                    </form>
 
                             </div>
                         </div>

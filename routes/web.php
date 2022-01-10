@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuotationRequestController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/contact', function(){
-    return view('contact');
+Route::get('/accueil', function () {
+    return view('accueil');
+});
+
+Route::get('/', function () {
+    return view('accueil');
 });
 
 Route::get('/services', function(){
@@ -34,7 +39,17 @@ Route::view('sousmission', 'sousmissions');
 
 Route::post('sousmission', [QuotationRequestController::class,'addData']);
 
-Route::prefix('user')->namespace('User')->name('user.')->middleware(['auth', 'isUser'])->group(base_path('/routes/user/user.php'));
+Route::post('contact', [MailController::class,'sendEmail']);
+
+Route::get('/contact', function(){
+    return view('contact');
+});
+
+
+//Route::get('auth/login', [CustomAuthController::class, 'index']);
+//Route::post('auth/login', [CustomAuthController::class, 'customLogin']);
+//Route::get('auth/dashboard', [CustomAuthController::class, 'dashboard'])->middleware('authenticated');
+//Route::get('', [CustomAuthController::class, 'signOut']);
 
 Route::get('/login', function (){
     return view('login');
