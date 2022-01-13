@@ -7,7 +7,7 @@ use App\Models\QuotationRequest;
 
 class QuotationRequestController extends Controller
 {
-    //
+
     function addData(Request $req){
         $quotationRequest=new QuotationRequest;
         $quotationRequest->first_name=$req->first_name;

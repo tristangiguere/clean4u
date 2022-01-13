@@ -1,0 +1,40 @@
+a {
+}
+
+#invoice-title {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.quote-action-button {
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.customer-info-header {
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+
+.customer-info-content {
+  margin-bottom: 0px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.customer-info-section {
+  margin-bottom: 10px;
+}
+
+.customer-info-column {
+  padding: 20px;
+  background-color: #eeeeee;
+  border-radius: 15px;
+  margin-bottom: 40px;
+}
+
+.itemrow {
+}
+

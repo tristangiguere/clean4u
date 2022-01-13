@@ -20,11 +20,11 @@ Route::get('/', function () {
 });
 
 Route::get('/accueil', function () {
-    return view('accueil');
+    return view('home');
 });
 
 Route::get('/', function () {
-    return view('accueil');
+    return view('home');
 });
 
 Route::get('/services', function(){
@@ -35,9 +35,9 @@ Route::get('/services', function(){
 //    return view('sousmissions');
 //});
 
-Route::view('sousmission', 'sousmissions');
+Route::view('soumission', 'soumission');
 
-Route::post('sousmission', [QuotationRequestController::class,'addData']);
+Route::post('soumission', [QuotationRequestController::class,'addData']);
 
 Route::post('contact', [MailController::class,'sendEmail']);
 
@@ -66,3 +66,37 @@ Route::get('/admindashboard', function (){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+// --------  ALL ROUTES FOR ADMIN DASHBOARD  --------
+
+// All invoices
+Route::get('/admin/invoices', function (){
+    return view('admin.invoices');
+});
+
+// Single invoice
+Route::get('/admin/invoice', function (){
+    return view('admin.invoice');
+});
+
+// All quotes
+Route::get('/admin/quotes', function (){
+    return view('admin.quotes');
+});
+
+// Single quote
+Route::get('/admin/quote', function (){
+    return view('admin.quote');
+});
+
+// All requests
+Route::get('/admin/requests', function (){
+    return view('admin.requests');
+});
+
+// Single quote
+Route::get('/admin/request', function (){
+    return view('admin.request');
+});
