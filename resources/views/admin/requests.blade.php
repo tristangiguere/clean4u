@@ -19,7 +19,7 @@
                             <div class="col-md-2 col-lg-1 col-xl-1">
                                 <p class="customer-info-header"><strong>Request #</strong></p>
                             </div>
-                            <div class="col-md-2 col-lg-1 col-xl-1">
+                            <div class="col-md-2 col-lg-2 col-xl-2">
                                 <p class="customer-info-header"><strong>Date Received</strong></p>
                             </div>
                             <div class="col-md-2 col-lg-1 col-xl-1">
@@ -37,21 +37,23 @@
                                 <hr>
                             </div>
                         </div>
+
+                        @foreach($quotationRequests as $quoteRequest)
                         <div class="row itemrow">
                             <div class="col-md-2 col-lg-1 col-xl-1">
-                                <p class="customer-info-header">121231</p>
-                            </div>
-                            <div class="col-md-2 col-lg-1 col-xl-1">
-                                <p class="customer-info-header">2021-12-02</p>
-                            </div>
-                            <div class="col-md-2 col-lg-1 col-xl-1">
-                                <p class="customer-info-header">Pending</p>
+                                <p class="customer-info-header"><a href="request/{{$quoteRequest->id}}">{{$quoteRequest->id}}</a></p>
                             </div>
                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                <p class="customer-info-header">James St-James</p>
+                                <p class="customer-info-header">{{$quoteRequest->created_at}}</p>
+                            </div>
+                            <div class="col-md-2 col-lg-1 col-xl-1">
+                                <p class="customer-info-header">{{$quoteRequest->status}}</p>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-xl-2">
+                                <p class="customer-info-header">{{$quoteRequest->first_name}} {{$quoteRequest->last_name}}</p>
                             </div>
                             <div class="col text-end d-md-flex d-xl-flex justify-content-lg-end justify-content-xl-end">
-                                <p class="customer-info-header" style="opacity: 50%;"><strong>View&nbsp; |&nbsp; Edit&nbsp; |&nbsp; Archive&nbsp; |&nbsp; Print</strong></p>
+                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="request/{{$quoteRequest->id}}">View</a>&nbsp; |&nbsp; Archive</strong></p>
                             </div>
                         </div>
                         <div class="row itemrow">
@@ -59,6 +61,8 @@
                                 <hr>
                             </div>
                         </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>

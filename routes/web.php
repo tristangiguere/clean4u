@@ -92,11 +92,13 @@ Route::get('/admin/quote', function (){
 });
 
 // All requests
-Route::get('/admin/requests', function (){
-    return view('admin.requests');
-});
+Route::get('admin/requests', [QuotationRequestController::class,'listAll']);
 
-// Single quote
-Route::get('/admin/request', function (){
-    return view('admin.request');
+// Single request
+Route::get('admin/request/{id}', [QuotationRequestController::class,'viewSingle']);
+
+
+// Home link
+Route::get('/admin', function (){
+    return redirect('/admin/quotes');;
 });

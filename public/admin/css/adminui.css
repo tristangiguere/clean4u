@@ -1,5 +1,18 @@
 a {
+  text-decoration: none;
 }
+
+a:hover {
+  text-decoration: none;
+  color:black;
+  opacity: 75%;
+}
+a:link {
+  text-decoration: none;
+  color:black;
+}
+
+
 
 #invoice-title {
   font-size: 25px;

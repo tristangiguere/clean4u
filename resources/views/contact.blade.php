@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@include('layouts.head')
 <br><br><br><br><br><br><br><br><br>
     <div class="w3-row w3-margin-top w3-large w3-section container justify-content-center">
         <div class="row m8 w3-panel center-block">

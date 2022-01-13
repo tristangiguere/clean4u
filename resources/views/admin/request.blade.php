@@ -5,7 +5,7 @@
             <div class="container" style="margin-bottom: 20px;padding-left: 0px;padding-right: 0px;">
                 <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 30px;">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h1 id="invoice-title" style="margin: 0px;">Quotation request from James Arthur</h1>
+                        <h1 id="invoice-title" style="margin: 0px;">Quotation request from {{$quoteRequest->first_name}} {{$quoteRequest->last_name}}</h1>
                     </div>
                     <div><button class="btn btn-primary quote-action-button" type="button">Reply</button><button class="btn btn-primary quote-action-button" type="button" style="margin-left: 10px;background-color: #bc251a;border-color: #bc251a;">Archive</button></div>
                 </div>
@@ -18,30 +18,30 @@
                             <div class="col">
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">First Name</p>
-                                    <p class="customer-info-content">James</p>
+                                    <p class="customer-info-content">{{$quoteRequest->first_name}}</p>
                                 </div>
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Phone Number</p>
-                                    <p class="customer-info-content"><strong>514-514-4242</strong></p>
+                                    <p class="customer-info-content"><strong>{{$quoteRequest->phone}}</strong></p>
                                 </div>
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Date Submitted</p>
-                                    <p class="customer-info-content"><strong>2021-12-22 2:43 PM</strong></p>
+                                    <p class="customer-info-content"><strong>{{$quoteRequest->created_at}}</strong></p>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Last Name</p>
-                                    <p class="customer-info-content"><strong>Arthur</strong><br></p>
+                                    <p class="customer-info-content"><strong>{{$quoteRequest->last_name}}</strong><br></p>
                                 </div>
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Email</p>
-                                    <p class="customer-info-content"><strong>james@james.co</strong></p>
+                                    <p class="customer-info-content"><strong>{{$quoteRequest->email}}</strong></p>
                                 </div>
                                 <div class="d-flex">
                                     <div class="customer-info-section">
                                         <p class="customer-info-header">Status</p>
-                                        <p class="customer-info-content" style="color: var(--bs-green);">Completed</p>
+                                        <p class="customer-info-content" style="color: var(--bs-green);">{{$quoteRequest->status}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -53,21 +53,21 @@
                             <div class="col">
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Vehicle type</p>
-                                    <p class="customer-info-content">Car</p>
+                                    <p class="customer-info-content">{{$quoteRequest->type}}</p>
                                 </div>
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Model</p>
-                                    <p class="customer-info-content">Corolla</p>
+                                    <p class="customer-info-content">{{$quoteRequest->model}}</p>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Manufacturer</p>
-                                    <p class="customer-info-content">Toyota</p>
+                                    <p class="customer-info-content">{{$quoteRequest->make}}</p>
                                 </div>
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Production Year</p>
-                                    <p class="customer-info-content">2005</p>
+                                    <p class="customer-info-content">{{$quoteRequest->year}}</p>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                         <p style="position: absolute;margin-top: -33px;font-weight: bold;text-transform: uppercase;/*z-index: 10000;*/background-color: black;padding-left: 10px;padding-right: 10px;border-radius: 12px;font-size: 13px;letter-spacing: 1px;padding-top: 3px;padding-bottom: 3px;color: white;">REQUEST MESSAGE</p>
                         <div class="row">
                             <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                <p class="customer-info-header"><strong>Message from James:</strong></p>
+                                <p class="customer-info-header"><strong>Message from {{$quoteRequest->first_name}}:</strong></p>
                             </div>
                         </div>
                         <div class="row itemrow">
@@ -88,7 +88,7 @@
                         </div>
                         <div class="row itemrow">
                             <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                                <p class="customer-info-header">Hello! I live on the south shore of Montreal, and I would like to have an estimate to have my car windows tinted.</p>
+                                <p class="customer-info-header">{{$quoteRequest->services}}</p>
                             </div>
                         </div>
                         <div class="row itemrow">

@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@include('layouts.head')
 
 <header class="w3-display-container w3-content w3-center" style="max-width:1500px; justify-content: center;">
     <img class="w3-image" src="img/R.png" alt="background" style="min-width:1000px" width="1500" height="800">
@@ -7,7 +7,7 @@
             <h2><i class="fa fa-car w3-margin-right"></i>Votre soumission</h2>
         </div>
         <div class="w3-container w3-white w3-padding-16">
-            <form action="sousmission" method="POST">
+            <form action="soumission" method="POST">
                 @csrf
                 <div class="w3-row-padding" style="margin:0 -16px;">
                     <div class="w3-half w3-margin-bottom">

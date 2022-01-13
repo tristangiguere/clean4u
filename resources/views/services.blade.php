@@ -1,6 +1,6 @@
-@extends('layouts.head')
+@include('layouts.head')
 <br><br><br><br><br><br>
-<div class="w3-container w3-padding-32" id="projects">
+<div class="w3-container w3-padding" id="projects">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Services offerts pour tous les types de véhicules</h3>
 </div>
 
