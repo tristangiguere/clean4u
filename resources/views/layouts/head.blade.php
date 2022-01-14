@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <title>Moz-Art Polissage</title>
+    <title>Clean4U</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -39,7 +39,7 @@
 <body>
 
 <nav class="navbar navbar-light navbar-expand-md w3-top" style="margin-bottom: 0px;">
-    <div class="container-fluid"><a href=""><img style="width: 10%; height: 10%;" src="img/logo.png" alt="logo"/></a><button data-bs-toggle="collapse" data-bs-target="#navcol-1" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container-fluid"><a href=""><img style="width: 25%; height: 25%;" src="img/logo.png" alt="logo"/></a><button data-bs-toggle="collapse" data-bs-target="#navcol-1" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse d-lg-flex justify-content-lg-end" id="navcol-1">
             <ul class="navbar-nav" style="font-family: 'Epilogue', sans-serif; font-weight: 600;">
                 <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>

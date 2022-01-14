@@ -97,6 +97,8 @@ Route::get('admin/requests', [QuotationRequestController::class,'listAll']);
 // Single request
 Route::get('admin/request/{id}', [QuotationRequestController::class,'viewSingle']);
 
+// Single request (REPLY TO CUSTOMER)
+Route::post('admin/request/{id}', [QuotationRequestController::class,'replyToRequest']);
 
 // Home link
 Route::get('/admin', function (){

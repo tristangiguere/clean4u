@@ -36,6 +36,16 @@ class QuotationRequestController extends Controller
     function viewSingle($id){
         $quoteRequest = QuotationRequest::find($id);
         return view('admin.request', ['quoteRequest'=>$quoteRequest]);
+    }
 
+    function replyToRequest($id, Request $req){
+        $quoteRequest = QuotationRequest::find($id);
+        
+        $data = [
+            'email' => $quoteRequest->email,
+            'reply' => $req->reply,
+        ];
+
+        $result = (new MailController)->replyToRequest($data);
     }
 }

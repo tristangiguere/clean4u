@@ -96,6 +96,16 @@
                                 <hr>
                             </div>
                         </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12 customer-info-column" id="replybox" style="padding-top: 25px;">
+                        <p style="position: absolute;margin-top: -33px;font-weight: bold;text-transform: uppercase;/*z-index: 10000;*/background-color: black;padding-left: 10px;padding-right: 10px;border-radius: 12px;font-size: 13px;letter-spacing: 1px;padding-top: 3px;padding-bottom: 3px;color: white;">REPLY TO CUSTOMER</p>
+                        <div class="row itemrow">
+                        <form action="" method="POST">
+                            @csrf
+                            <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12"><textarea style="padding: 10px;border: none;border-radius: 3.5px;width: 100%;font-size: 14px;min-height: 150px;" name="reply"></textarea><button class="btn btn-primary quote-action-button" type="submit" style="margin-top: 15px;font-size: 12px;">Send msessage</button></div>
+                            </form>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
