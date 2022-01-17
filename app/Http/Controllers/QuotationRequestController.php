@@ -25,7 +25,7 @@ class QuotationRequestController extends Controller
         $quotationRequest->created_at = date(('Y-m-d h:i:sa'));
         $quotationRequest->status = "New";
         $quotationRequest->save();
-        return redirect('soumission');
+        return redirect('quote');
     }
 
     function listAll(){

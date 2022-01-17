@@ -44,7 +44,7 @@
             <ul class="navbar-nav" style="font-family: 'Epilogue', sans-serif; font-weight: 600;">
                 <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="/soumission">Quotations</a></li>
+                <li class="nav-item"><a class="nav-link" href="/quote">Quotations</a></li>
                 <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
                 <!-- <a href="/login"><span class=" w3-bar-item glyphicon glyphicon-user"></span></a> -->
             </ul>

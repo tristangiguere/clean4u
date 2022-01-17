@@ -19,32 +19,33 @@ class QuoteRequestSubmitTest extends DuskTestCase
 
         // Assert the UI flow
         $this->browse(function (Browser $browser) {
-            $browser->visit('/sousmission')
-                    ->assertSee('Votre soumission')
-                    ->assertSee('Nom')
+            $browser->visit('/quote')
+                    ->assertSee('Get a quote')
+                    ->assertSee('Last Name')
                     ->type('last_name', "Doe")
-                    ->assertSee('Prénom')
+                    ->assertSee('First Name')
                     ->type('first_name', "John")
                     ->assertSee('Courriel')
                     ->type('email', "email@example.com")
                     ->assertSee('Numéro de téléphone')
                     ->type('phone', '5141121212')
-                    ->assertSee('Véhicule')
-                    ->select('vehicle', 'Voiture')
-                    ->assertSee('Année')
+                    ->assertSee('Vehicle type')
+                    ->select('type', 'Car')
+                    ->assertSee('Year')
                     ->type('year', '2009')
-                    ->assertSee('Marque')
+                    ->assertSee('Make')
                     ->type('make', 'Lamborghini')
-                    ->assertSee('Modèle')
+                    ->assertSee('Model')
                     ->type('model', 'Adventador')
-                    ->assertSee('Description des services demandés')
-                    ->assertSee('Envoyer')
+                    ->assertSee('Description of services requested')
+                    ->scrollTo('#submitbtn')
+                    ->assertSee('Submit')
                     ->type('services', 'I am looking to get my windows tinted.')
                     ->press('send');
 
         // Assert that the request is in the database
         $this->assertDatabaseHas('quotation_requests',['first_name'=>"John", 'last_name'=>"Doe", 'email'=>"email@example.com",
-        'phone'=>'5141121212', 'vehicle'=>'Voiture', 'year'=>'2009', 'make'=>'Lamborghini', 'model'=>'Adventador', 'services'=>'I am looking to get my windows tinted.']);
+        'phone'=>'5141121212', 'type'=>'Car', 'year'=>'2009', 'make'=>'Lamborghini', 'model'=>'Adventador', 'services'=>'I am looking to get my windows tinted.']);
         
         });
     }
