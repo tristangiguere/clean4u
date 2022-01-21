@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuotationRequestController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\MailController;
 
 Route::get('/', function () {
@@ -61,6 +62,8 @@ Route::get('/admin/quote', function (){
     return view('admin.quote');
 });
 
+
+
 // All requests
 Route::get('admin/requests', [QuotationRequestController::class,'listAll']);
 
@@ -75,10 +78,15 @@ Route::get('/admin', function (){
     return redirect('/admin/quotes');;
 });
 
+// Single quote
+Route::get('/admin/invoice/new', function (){
+    return view('admin.addinvoice');
+});
 
+Route::post('/admin/invoice/new', [InvoiceController::class,'addData']);
 
-
-
+// All invoices
+Route::get('admin/invoices', [InvoiceController::class,'listAll']);
 
 
 

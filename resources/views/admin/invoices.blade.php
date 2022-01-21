@@ -8,7 +8,7 @@
                         <h1 id="invoice-title" style="margin: 0px;">Invoices</h1>
                     </div>
                     <div class="d-flex align-items-md-center align-items-xl-center">
-                        <p class="customer-info-header" style="opacity: 50%;margin-right: 20px;font-size: 12px;">Pending |&nbsp; Overdue&nbsp; |&nbsp; Partial&nbsp; |&nbsp; Paid&nbsp; |<strong>&nbsp; All</strong></p><button class="btn btn-primary quote-action-button" type="button" style="background-color: black;border-color: black;">New</button>
+                        <p class="customer-info-header" style="opacity: 50%;margin-right: 20px;font-size: 12px;">Pending |&nbsp; Overdue&nbsp; |&nbsp; Partial&nbsp; |&nbsp; Paid&nbsp; |<strong>&nbsp; All</strong></p><form action="invoice/new"><button class="btn btn-primary quote-action-button" type="submit" style="background-color: black;border-color: black;">New</button></form>
                     </div>
                 </div>
             </div>
@@ -43,24 +43,32 @@
                                 <hr>
                             </div>
                         </div>
+                        @foreach($invoices as $invoice)
                         <div class="row itemrow">
                             <div class="col-md-1 col-lg-1 col-xl-1">
-                                <p class="customer-info-header">121231</p>
+                                <p class="customer-info-header">{{$invoice->id}}</p>
                             </div>
                             <div class="col-md-2 col-lg-1 col-xl-1">
-                                <p class="customer-info-header">2021-12-02</p>
+                                <p class="customer-info-header">{{$invoice->due_date}}</p>
                             </div>
+
+                            @if($invoice->status == 0)
                             <div class="col-md-1 col-lg-1 col-xl-1">
                                 <p class="customer-info-header">Unpaid</p>
                             </div>
+                            @elseif($invoice->status == 1)
+                            <div class="col-md-1 col-lg-1 col-xl-1">
+                                <p class="customer-info-header">Paid</p>
+                            </div>
+                            @endif
                             <div class="col-md-1 col-lg-2 col-xl-1">
                                 <p class="customer-info-header">2431.99 $</p>
                             </div>
                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                <p class="customer-info-header">James St-James</p>
+                                <p class="customer-info-header">{{$invoice->name}}</p>
                             </div>
                             <div class="col-md-2 col-lg-1 col-xl-2">
-                                <p class="customer-info-header">2021-12-02</p>
+                                <p class="customer-info-header">{{$invoice->created_date}}</p>
                             </div>
                             <div class="col text-end d-md-flex d-xl-flex justify-content-md-end justify-content-xl-end">
                                 <p class="customer-info-header" style="opacity: 50%;"><strong>View&nbsp; |&nbsp; Edit&nbsp; |&nbsp; Archive&nbsp; |&nbsp; Print</strong></p>
@@ -71,6 +79,7 @@
                                 <hr>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

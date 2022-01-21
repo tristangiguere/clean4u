@@ -16,7 +16,7 @@ class AdminViewQuoteRequestTest extends DuskTestCase
      *
      * @return void
      */
-    public function testNavigation_RequestsList()
+    public function testNavigation_RequestSingle()
     {
         //Check if array contains at least one element
         if (sizeof(QuotationRequest::all()) > 0) {

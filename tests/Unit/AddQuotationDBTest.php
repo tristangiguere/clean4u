@@ -1,7 +1,7 @@
 <?php
 
-// The scope of this unit test is to add a dummy request to the Quote Requests database table through the controller method, and to verify that the record is successfully inserted into the database afterwards.
-// To run this test, use the command: ./vendor/bin/phpunit
+// The scope of this unit test is to add a dummy request to the Quote Requests database table through the controller method,
+// and to verify that the record is successfully inserted into the database afterwards.
 
 namespace Tests\Unit;
 use Tests\TestCase;
@@ -36,7 +36,10 @@ class AddQuotationDBTest extends TestCase
         app('App\Http\Controllers\QuotationRequestController')->addData($mockRequest);
 
         // Assert that the request is in the database
-        $this->assertDatabaseHas('quotation_requests',['first_name'=>$mockRequest->first_name, 'last_name'=>$mockRequest->last_name, 'email'=>$mockRequest->email,
-        'phone'=>$mockRequest->phone, 'type'=>$mockRequest->type, 'year'=>$mockRequest->year, 'make'=>$mockRequest->make, 'model'=>$mockRequest->model, 'services'=>$mockRequest->services, 'created_at'=>$mockRequest->created_at, 'status'=>$mockRequest->status]);
+        $this->assertDatabaseHas('quotation_requests',['first_name'=>$mockRequest->first_name,
+        'last_name'=>$mockRequest->last_name, 'email'=>$mockRequest->email,
+        'phone'=>$mockRequest->phone, 'type'=>$mockRequest->type, 'year'=>$mockRequest->year,
+        'make'=>$mockRequest->make, 'model'=>$mockRequest->model, 'services'=>$mockRequest->services,
+        'created_at'=>$mockRequest->created_at, 'status'=>$mockRequest->status]);
     }
 }

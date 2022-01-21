@@ -1,18 +1,22 @@
 a {
   text-decoration: none;
+  color:black;
 }
 
-a:hover {
+a:clicked {
   text-decoration: none;
   color:black;
-  opacity: 75%;
 }
+
 a:link {
   text-decoration: none;
   color:black;
 }
 
-
+a:hover {
+  text-decoration: none;
+  color:black;
+}
 
 #invoice-title {
   font-size: 25px;
@@ -37,6 +41,15 @@ a:link {
   font-weight: bold;
 }
 
+.invoice-field {
+  margin-bottom: 0px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding-left: 8px;
+  border-style: none;
+}
+
 .customer-info-section {
   margin-bottom: 10px;
 }
@@ -49,5 +62,9 @@ a:link {
 }
 
 .itemrow {
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
 }
 
