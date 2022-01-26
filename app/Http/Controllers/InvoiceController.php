@@ -36,7 +36,7 @@ class InvoiceController extends Controller
         $invoice->price_1=$req->price_1;
         $invoice->qty_1=$req->qty_1;
         $invoice->rowtotal_1=$req->row_total_1;
-        $invoice->tax_rate_1=$req->tax_rate_1;
+        $invoice->tax_amount_1=$req->tax_amt_1;
 
         // Set values for item rows (ROW 2)
         $invoice->product_2=$req->product_2;
@@ -44,7 +44,7 @@ class InvoiceController extends Controller
         $invoice->price_2=$req->price_2;
         $invoice->qty_2=$req->qty_2;
         $invoice->rowtotal_2=22;
-        $invoice->tax_rate_2=$req->tax_rate_2;
+        $invoice->tax_amount_2=$req->tax_amt_2;
 
         // Set values for item rows (ROW 3)
         $invoice->product_3=$req->product_3;
@@ -52,7 +52,11 @@ class InvoiceController extends Controller
         $invoice->price_3=$req->price_3;
         $invoice->qty_3=$req->qty_3;
         $invoice->rowtotal_3=22;
-        $invoice->tax_rate_3=$req->tax_rate_3;
+        $invoice->tax_amount_3=$req->tax_amt_3;
+
+        $invoice->subtotal=$req->subtotal;
+        $invoice->taxTotal=$req->taxTotal;
+        $invoice->total=$req->total;
         
         $invoice->save();
         return redirect('admin/invoices');

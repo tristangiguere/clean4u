@@ -26,6 +26,9 @@ $(document).ready(function(){
         var taxRate = (taxTotal / subtotal * 100);
         $('#taxrate').text(taxRate.toFixed(2));
 
+        $('#subtotal_input').val(subtotal);
+        $('#taxtotal_input').val(taxTotal);
+        $('#total_input').val(total);
     }
 
     function update_Row1(){
@@ -95,13 +98,13 @@ $(document).ready(function(){
 
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Name</p><input type="text" class="invoice-field" name="name">
+                                    <p class="customer-info-header">Name</p><input type="text" class="invoice-field" name="name" required>
                                 </div>
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Email</p><input type="text" class="invoice-field" name="email">
+                                    <p class="customer-info-header">Email</p><input type="text" class="invoice-field" name="email" required>
                                 </div>
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Phone Number</p><input type="text" class="invoice-field" name="phone">
+                                    <p class="customer-info-header">Phone Number</p><input type="text" class="invoice-field" name="phone" required>
                                 </div>
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Company Name</p><input type="text" class="invoice-field" name="company">
@@ -109,21 +112,21 @@ $(document).ready(function(){
                             </div>
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Address</p><input type="text" class="invoice-field" name="address">
+                                    <p class="customer-info-header">Address</p><input type="text" class="invoice-field" name="address" required>
                                 </div>
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">City</p><input type="text" class="invoice-field" name="city">
+                                    <p class="customer-info-header">City</p><input type="text" class="invoice-field" name="city" required>
                                 </div>
                                 <div class="d-flex">
                                     <div class="customer-info-section" style="margin-right: 10%;max-width: 50%;">
-                                        <p class="customer-info-header">Province</p><input type="text" class="invoice-field" style="max-width: 30%;max-width: 100%;" name="province">
+                                        <p class="customer-info-header">Province</p><input type="text" class="invoice-field" style="max-width: 30%;max-width: 100%;" name="province" required>
                                     </div>
                                     <div class="customer-info-section">
-                                        <p class="customer-info-header">Postal Code</p><input type="text" class="invoice-field" style="max-width: 100px;" name="postal">
+                                        <p class="customer-info-header">Postal Code</p><input type="text" class="invoice-field" style="max-width: 100px;" name="postal" required>
                                     </div>
                                 </div>
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Country</p><select class="invoice-field" style="padding-left: 3px!important;" name="country">
+                                    <p class="customer-info-header">Country</p><select class="invoice-field" style="padding-left: 3px!important;" name="country" required>
                                         <option value="CAN" selected="">Canada</option>
                                         <option value="US">United States</option>
                                     </select>
@@ -136,12 +139,12 @@ $(document).ready(function(){
                         <div class="row">
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Due Date</p><input class="invoice-field" type="date" name="due_date">
+                                    <p class="customer-info-header">Due Date</p><input class="invoice-field" type="date" name="due_date" required>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Payment Terms</p><select class="invoice-field" style="padding-left: 3px!important;" name="terms">
+                                    <p class="customer-info-header">Payment Terms</p><select class="invoice-field" style="padding-left: 3px!important;" name="terms" required>
                                         <option value="0" selected="">On Receipt</option>
                                         <option value="30">Net 30</option>
                                         <option value="60">Net 60</option>
@@ -196,6 +199,7 @@ $(document).ready(function(){
                             <div class="col"><input type="number" class="invoice-field" min=0 style="max-width: 50px;" name="qty_1" id="qty_1"></div>
                             <input type="hidden" name="tax_amt_1" id="tax_amt_1"></input>
                             <input type="hidden" name="row_total_1" id="row_total_1"></input>
+                            
                             <div class="col">
                                 <p class="customer-info-header" id="rowtotaltext_1">0.00$</p>
                             </div>
@@ -272,6 +276,9 @@ $(document).ready(function(){
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Quote Subtotal ($)</p>
                                     <p class="customer-info-content" id="subtotal">24.99$</p>
+                                    <input type="hidden" name="subtotal" id="subtotal_input"></input>
+                                    <input type="hidden" name="taxTotal" id="taxtotal_input"></input>
+                                    <input type="hidden" name="total" id="total_input"></input>
                                 </div>
                             </div>
                             <div class="col">
@@ -296,6 +303,7 @@ $(document).ready(function(){
                     </div>
                 </div>
             </div>
+
         </section>
     </main>
 @include('admin.inc.foot')
