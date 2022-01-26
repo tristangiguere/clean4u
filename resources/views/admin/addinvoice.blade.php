@@ -4,15 +4,38 @@ $(document).ready(function(){
     update_Row1();
     update_Row2();
     update_Row3();
+    getTotals();
+
+    function getTotals(){
+        var row1_Total = parseFloat($( "#rowtotaltext_1" ).text());
+        var row2_Total = parseFloat($( "#rowtotaltext_2" ).text());
+        var row3_Total = parseFloat($( "#rowtotaltext_3" ).text());
+        var row1_Tax = parseFloat($('input[name="tax_amt_1"]').val());
+        var row2_Tax = parseFloat($('input[name="tax_amt_2"]').val());
+        var row3_Tax = parseFloat($('input[name="tax_amt_3"]').val());
+        var taxTotal = (row1_Tax + row2_Tax + row3_Tax);
+        
+        $('#taxtotal').text(taxTotal.toFixed(2));
+
+        var subtotal = (row1_Total + row2_Total + row3_Total);
+        $('#subtotal').text(subtotal.toFixed(2));
+        
+        var total = subtotal + taxTotal;
+        $('#finaltotal').text(total.toFixed(2));
+
+        var taxRate = (taxTotal / subtotal * 100);
+        $('#taxrate').text(taxRate.toFixed(2));
+
+    }
 
     function update_Row1(){
             var price_1 = $('#price_1').val();
             var qty_1 = $('#qty_1').val();
             var row_totalamt_1 = (price_1 * qty_1);
             console.log(row_totalamt_1);
-            $('#rowtotaltext_1').text(row_totalamt_1.toFixed(2) + "$");
+            $('#rowtotaltext_1').text(row_totalamt_1.toFixed(2));
             $('#row_total_1').val(row_totalamt_1);
-            var tax_rate_1 = $('#tax_rate_1').val();
+            var tax_rate_1 = $("#tax_rate_1 option:selected").val();
             $('#tax_amt_1').val(tax_rate_1 * row_totalamt_1);
     };
 
@@ -21,9 +44,9 @@ $(document).ready(function(){
             var qty_2 = $('#qty_2').val();
             var row_totalamt_2 = (price_2 * qty_2);
             console.log(row_totalamt_2);
-            $('#rowtotaltext_2').text(row_totalamt_2.toFixed(2) + "$");
+            $('#rowtotaltext_2').text(row_totalamt_2.toFixed(2));
             $('#row_total_2').val(row_totalamt_2);
-            var tax_rate_2 = $('#tax_rate_2').val();
+            var tax_rate_2 = $("#tax_rate_2 option:selected").val();
             $('#tax_amt_2').val(tax_rate_2 * row_totalamt_2);
     };
 
@@ -32,24 +55,19 @@ $(document).ready(function(){
             var qty_3 = $('#qty_3').val();
             var row_totalamt_3 = (price_3 * qty_3);
             console.log(row_totalamt_3);
-            $('#rowtotaltext_3').text(row_totalamt_3.toFixed(2) + "$");
+            $('#rowtotaltext_3').text(row_totalamt_3.toFixed(2));
             $('#row_total_3').val(row_totalamt_3);
-            var tax_rate_3 = $('#tax_rate_3').val();
+            var tax_rate_3 = $("#tax_rate_3 option:selected").val();
             $('#tax_amt_3').val(tax_rate_3 * row_totalamt_3);
     };
 
-
-
     $(".invoice-field").change(function() {
         update_Row1();
-        update_Row2()
-        update_Row3()
+        update_Row2();
+        update_Row3();
+        getTotals();
     });
-}); 
-
-
-
-
+});
 
 
 </script>
@@ -158,7 +176,7 @@ $(document).ready(function(){
                                 <p class="customer-info-header"><strong>Qty</strong></p>
                             </div>
                             <div class="col">
-                                <p class="customer-info-header"><strong>Total</strong></p>
+                                <p class="customer-info-header"><strong>Total ($)</strong></p>
                             </div>
                             <div class="col">
                                 <p class="customer-info-header"><strong>Tax</strong></p>
@@ -252,25 +270,25 @@ $(document).ready(function(){
                         <div class="row" style="padding-top: 5px;">
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Quote Subtotal</p>
+                                    <p class="customer-info-header">Quote Subtotal ($)</p>
                                     <p class="customer-info-content" id="subtotal">24.99$</p>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Tax Rate</p>
+                                    <p class="customer-info-header">Tax Rate (%)</p>
                                     <p class="customer-info-content" id="taxrate">14.975 %</p>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Tax</p>
+                                    <p class="customer-info-header">Tax ($)</p>
                                     <p class="customer-info-content" id="taxtotal">3.74$</p>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Total</p>
+                                    <p class="customer-info-header">Total ($)</p>
                                     <p class="customer-info-content" id="finaltotal">28.73$</p>
                                 </div>
                             </div>
