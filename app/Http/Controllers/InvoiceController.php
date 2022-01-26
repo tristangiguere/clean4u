@@ -77,6 +77,11 @@ class InvoiceController extends Controller
         return view('admin.invoices_paid', ['invoices'=>$invoices]);
     }
 
+    function viewSingle($id){
+        $invoice = Invoice::find($id);
+        return view('admin.invoice', ['invoice'=>$invoice]);
+    }
+
     // function viewSingle($id){
     //     $quoteRequest = QuotationRequest::find($id);
     //     return view('admin.request', ['quoteRequest'=>$quoteRequest]);

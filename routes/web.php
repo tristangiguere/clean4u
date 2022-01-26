@@ -85,6 +85,9 @@ Route::get('/admin/invoice/new', function (){
 
 Route::post('/admin/invoice/new', [InvoiceController::class,'addData']);
 
+// Single invoice
+Route::get('admin/invoice/{id}', [InvoiceController::class,'viewSingle']);
+
 // All invoices
 Route::get('admin/invoices', [InvoiceController::class,'listAll']);
 
