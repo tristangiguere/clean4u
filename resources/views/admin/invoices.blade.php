@@ -8,7 +8,7 @@
                         <h1 id="invoice-title" style="margin: 0px;">Invoices</h1>
                     </div>
                     <div class="d-flex align-items-md-center align-items-xl-center">
-                        <p class="customer-info-header" style="opacity: 50%;margin-right: 20px;font-size: 12px;"><a href="/admin/invoices/unpaid">Unpaid</a> |&nbsp; Paid&nbsp; |<strong>&nbsp; All</strong></p><form action="invoice/new"><button class="btn btn-primary quote-action-button" type="submit" style="background-color: black;border-color: black;">New</button></form>
+                    <p class="customer-info-header" style="opacity: 50%;margin-right: 20px;font-size: 12px;"><a href="/admin/invoices/unpaid">Unpaid</a> |&nbsp; <a href="/admin/invoices/paid">Paid</a>&nbsp; |<strong>&nbsp; <a href="/admin/invoices">All</a></strong></p><a href="/admin/invoice/new"><button class="btn btn-primary quote-action-button" type="submit" style="background-color: black;border-color: black;">New</button></a>
                     </div>
                 </div>
             </div>

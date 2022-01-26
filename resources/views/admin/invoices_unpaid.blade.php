@@ -8,7 +8,7 @@
                         <h1 id="invoice-title" style="margin: 0px;">Unpaid Invoices</h1>
                     </div>
                     <div class="d-flex align-items-md-center align-items-xl-center">
-                        <p class="customer-info-header" style="opacity: 50%;margin-right: 20px;font-size: 12px;"><a href="/admin/invoices/unpaid"><strong>Unpaid</strong></a> |&nbsp; <a href="/admin/invoices/paid">Paid</a>&nbsp; |&nbsp; <a href="/admin/invoices/">All</a></p><form action="invoice/new"><button class="btn btn-primary quote-action-button" type="submit" style="background-color: black;border-color: black;">New</button></form>
+                    <p class="customer-info-header" style="opacity: 50%;margin-right: 20px;font-size: 12px;"><a href="/admin/invoices/unpaid"><strong>Unpaid</strong></a> |&nbsp; <a href="/admin/invoices/paid">Paid</a>&nbsp; |&nbsp; <a href="/admin/invoices">All</a></p><a href="/admin/invoice/new"><button class="btn btn-primary quote-action-button" type="submit" style="background-color: black;border-color: black;">New</button></a>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                                 <p class="customer-info-header">{{$invoice->created_date}}</p>
                             </div>
                             <div class="col text-end d-md-flex d-xl-flex justify-content-md-end justify-content-xl-end">
-                                <p class="customer-info-header" style="opacity: 50%;"><strong>View&nbsp; |&nbsp; Archive&nbsp; |&nbsp; Print</strong></p>
+                            <p class="customer-info-header" style="opacity: 50%;"><strong><a href="/admin/invoice/{{$invoice->id}}">View</a>&nbsp; |&nbsp; Archive&nbsp; |&nbsp; Print</strong></p>
                             </div>
                         </div>
                         <div class="row itemrow">
