@@ -150,6 +150,9 @@ $(document).ready(function(){
                                         <option value="60">Net 60</option>
                                         <option value="90">Net 90</option>
                                     </select>
+                                    <input type="hidden" name="subtotal" id="subtotal_input"></input>
+                                    <input type="hidden" name="taxTotal" id="taxtotal_input"></input>
+                                    <input type="hidden" name="total" id="total_input"></input>
                                 </div>
                             </div>
                         </div>
@@ -276,9 +279,6 @@ $(document).ready(function(){
                                 <div class="customer-info-section">
                                     <p class="customer-info-header">Quote Subtotal ($)</p>
                                     <p class="customer-info-content" id="subtotal">24.99$</p>
-                                    <input type="hidden" name="subtotal" id="subtotal_input"></input>
-                                    <input type="hidden" name="taxTotal" id="taxtotal_input"></input>
-                                    <input type="hidden" name="total" id="total_input"></input>
                                 </div>
                             </div>
                             <div class="col">

@@ -67,6 +67,16 @@ class InvoiceController extends Controller
         return view('admin.invoices', ['invoices'=>$invoices]);
     }
 
+    function listAllUnpaid(){
+        $invoices = Invoice::where(['status' => 0])->get();
+        return view('admin.invoices_unpaid', ['invoices'=>$invoices]);
+    }
+
+    function listAllPaid(){
+        $invoices = Invoice::where(['status' => 1])->get();
+        return view('admin.invoices_paid', ['invoices'=>$invoices]);
+    }
+
     // function viewSingle($id){
     //     $quoteRequest = QuotationRequest::find($id);
     //     return view('admin.request', ['quoteRequest'=>$quoteRequest]);

@@ -88,6 +88,12 @@ Route::post('/admin/invoice/new', [InvoiceController::class,'addData']);
 // All invoices
 Route::get('admin/invoices', [InvoiceController::class,'listAll']);
 
+// All invoices (Unpaid)
+Route::get('admin/invoices/unpaid', [InvoiceController::class,'listAllUnpaid']);
+
+// All invoices (Paid)
+Route::get('admin/invoices/paid', [InvoiceController::class,'listAllPaid']);
+
 
 
 

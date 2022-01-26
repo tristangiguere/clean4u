@@ -5,10 +5,10 @@
             <div class="container" style="margin-bottom: 20px;padding-left: 0px;padding-right: 0px;">
                 <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 30px;">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h1 id="invoice-title" style="margin: 0px;">Invoices</h1>
+                        <h1 id="invoice-title" style="margin: 0px;">Paid Invoices</h1>
                     </div>
                     <div class="d-flex align-items-md-center align-items-xl-center">
-                        <p class="customer-info-header" style="opacity: 50%;margin-right: 20px;font-size: 12px;"><a href="/admin/invoices/unpaid">Unpaid</a> |&nbsp; Paid&nbsp; |<strong>&nbsp; All</strong></p><form action="invoice/new"><button class="btn btn-primary quote-action-button" type="submit" style="background-color: black;border-color: black;">New</button></form>
+                        <p class="customer-info-header" style="opacity: 50%;margin-right: 20px;font-size: 12px;"><a href="/admin/invoices/unpaid">Unpaid</a> |&nbsp; <a href="/admin/invoices/paid"><strong>Paid</strong></a>&nbsp; |&nbsp; <a href="/admin/invoices/">All</a></p><form action="invoice/new"><button class="btn btn-primary quote-action-button" type="submit" style="background-color: black;border-color: black;">New</button></form>
                     </div>
                 </div>
             </div>
