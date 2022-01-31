@@ -67,6 +67,9 @@ Route::get('/admin/quote', function (){
 // All requests
 Route::get('admin/requests', [QuotationRequestController::class,'listAll']);
 
+// Delete request
+Route::get('admin/request/{id}/delete', [QuotationRequestController::class,'deleteRequest']);
+
 // Single request
 Route::get('admin/request/{id}', [QuotationRequestController::class,'viewSingle']);
 

@@ -48,4 +48,9 @@ class QuotationRequestController extends Controller
 
         $result = (new MailController)->replyToRequest($data);
     }
+
+    function deleteRequest($id){
+        $quoteRequest = QuotationRequest::destroy($id);
+        return redirect('/admin/requests');
+    }
 }

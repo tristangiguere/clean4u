@@ -53,7 +53,7 @@
                                 <p class="customer-info-header">{{$quoteRequest->first_name}} {{$quoteRequest->last_name}}</p>
                             </div>
                             <div class="col text-end d-md-flex d-xl-flex justify-content-lg-end justify-content-xl-end">
-                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="request/{{$quoteRequest->id}}">View</a>&nbsp; |&nbsp; Archive</strong></p>
+                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="request/{{$quoteRequest->id}}">View</a>&nbsp; |&nbsp; <a href="request/{{$quoteRequest->id}}/delete" onclick="return confirm('Are you sure you want to delete Quotation Request #{{$quoteRequest->id}}? This action is irreversible.');">Delete</a></strong></p>
                             </div>
                         </div>
                         <div class="row itemrow">

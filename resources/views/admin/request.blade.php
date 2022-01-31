@@ -7,7 +7,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h1 id="invoice-title" style="margin: 0px;">Quotation request from {{$quoteRequest->first_name}} {{$quoteRequest->last_name}}</h1>
                     </div>
-                    <div><button class="btn btn-primary quote-action-button" type="button">Reply</button><button class="btn btn-primary quote-action-button" type="button" style="margin-left: 10px;background-color: #bc251a;border-color: #bc251a;">Archive</button></div>
+                    <div><button class="btn btn-primary quote-action-button" type="button">Reply</button></div>
                 </div>
             </div>
             <div class="container">
