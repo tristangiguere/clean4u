@@ -70,7 +70,7 @@
                                 <p class="customer-info-header">{{$invoice->created_date}}</p>
                             </div>
                             <div class="col text-end d-md-flex d-xl-flex justify-content-md-end justify-content-xl-end">
-                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="/admin/invoice/{{$invoice->id}}">View</a>&nbsp; |&nbsp; <a href="invoice/{{$invoice->id}}/delete" onclick="return confirm('Are you sure you want to delete Invoice #{{$invoice->id}}? This action is irreversible.');">Delete</a>&nbsp; |&nbsp; <a href="/admin/invoice/{{$invoice->id}}/download">Print</strong></a></p>
+                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="/admin/invoice/{{$invoice->id}}">View</a>&nbsp; |&nbsp; <a href="invoice/{{$invoice->id}}/delete" onclick="return confirm('Are you sure you want to delete Invoice #{{$invoice->id}}? This action is irreversible.');">Delete</a>&nbsp; |&nbsp; <a href="/admin/invoice/{{$invoice->id}}/download">Print</a>&nbsp; |&nbsp; <a href="invoice/{{$invoice->id}}/send" onclick="return confirm('Are you sure you want to send Invoice #{{$invoice->id}} to customer?');">Email</a></strong></p>
                             </div>
                         </div>
                         <div class="row itemrow">
