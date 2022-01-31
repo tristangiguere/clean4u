@@ -100,6 +100,9 @@ Route::get('admin/invoices/paid', [InvoiceController::class,'listAllPaid']);
 // Download invoice PDF
 Route::get('admin/invoice/{id}/download', [InvoiceController::class,'downloadInvoicePDF']);
 
+// Delete invoice
+Route::get('admin/invoice/{id}/delete', [InvoiceController::class,'deleteInvoice']);
+
 
 
 
