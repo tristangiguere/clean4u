@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Invoice;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Mail;
 
 class InvoiceController extends Controller
 {
@@ -92,5 +93,23 @@ class InvoiceController extends Controller
     function deleteInvoice($id){
         $invoice = Invoice::destroy($id);
         return redirect('/admin/invoices');
+    }
+
+    function sendInvoice($id){
+
+        $invoice = Invoice::find($id);
+
+        $pdf = PDF::loadView('admin.download-invoice', ['invoice'=>$invoice])->setOptions(['defaultFont' => 'sans-serif']);
+        
+        $data["email"] = $invoice->email;
+        $data["title"] = "Invoice #" . $invoice->id . " from Clean4U Mtl" ;
+        $data["body"] = "You have a new invoice from Clean4U Montreal. Please see attached PDF document for copy.";
+        Mail::send('mail.invoice-email', $data, function($message)use($data, $pdf) {
+            $message->to($data["email"], $data["email"])
+                    ->subject($data["title"])
+                    ->attachData($pdf->output(), "Invoice.pdf");
+        });
+
+        dd('Invoice sent successfully');
     }
 }

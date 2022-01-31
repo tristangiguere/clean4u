@@ -103,7 +103,8 @@ Route::get('admin/invoice/{id}/download', [InvoiceController::class,'downloadInv
 // Delete invoice
 Route::get('admin/invoice/{id}/delete', [InvoiceController::class,'deleteInvoice']);
 
-
+// Send invoice
+Route::get('admin/invoice/{id}/send', [InvoiceController::class,'sendInvoice']);
 
 
 
