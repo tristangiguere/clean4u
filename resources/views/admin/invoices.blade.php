@@ -1,5 +1,4 @@
 @include('admin.inc.head')
-
 <main class="page landing-page">
         <section style="padding-top: 15px;padding-bottom: 40px;padding-left: 10px;padding-right: 10px;">
             <div class="container" style="margin-bottom: 20px;padding-left: 0px;padding-right: 0px;">
@@ -71,7 +70,7 @@
                                 <p class="customer-info-header">{{$invoice->created_date}}</p>
                             </div>
                             <div class="col text-end d-md-flex d-xl-flex justify-content-md-end justify-content-xl-end">
-                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="/admin/invoice/{{$invoice->id}}">View</a>&nbsp; |&nbsp; Archive&nbsp; |&nbsp; Print</strong></p>
+                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="/admin/invoice/{{$invoice->id}}">View</a>&nbsp; |&nbsp; <a href="invoice/{{$invoice->id}}/delete" onclick="return confirm('Are you sure you want to delete Invoice #{{$invoice->id}}? This action is irreversible.');">Delete</a>&nbsp; |&nbsp; <a href="/admin/invoice/{{$invoice->id}}/download">Print</strong></a></p>
                             </div>
                         </div>
                         <div class="row itemrow">

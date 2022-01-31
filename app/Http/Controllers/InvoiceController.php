@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Invoice;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class InvoiceController extends Controller
 {
@@ -82,19 +83,9 @@ class InvoiceController extends Controller
         return view('admin.invoice', ['invoice'=>$invoice]);
     }
 
-    // function viewSingle($id){
-    //     $quoteRequest = QuotationRequest::find($id);
-    //     return view('admin.request', ['quoteRequest'=>$quoteRequest]);
-    // }
-
-    // function replyToRequest($id, Request $req){
-    //     $quoteRequest = QuotationRequest::find($id);
-        
-    //     $data = [
-    //         'email' => $quoteRequest->email,
-    //         'reply' => $req->reply,
-    //     ];
-
-    //     $result = (new MailController)->replyToRequest($data);
-    // }
+    function downloadInvoicePDF($id){
+        $invoice = Invoice::find($id);
+        $pdf = PDF::loadView('admin.download-invoice', ['invoice'=>$invoice])->setOptions(['defaultFont' => 'sans-serif']);
+        return $pdf->stream('Clean4U Invoice #' . $id . '.pdf');
+    }
 }

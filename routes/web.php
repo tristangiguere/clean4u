@@ -97,6 +97,9 @@ Route::get('admin/invoices/unpaid', [InvoiceController::class,'listAllUnpaid']);
 // All invoices (Paid)
 Route::get('admin/invoices/paid', [InvoiceController::class,'listAllPaid']);
 
+// Download invoice PDF
+Route::get('admin/invoice/{id}/download', [InvoiceController::class,'downloadInvoicePDF']);
+
 
 
 
