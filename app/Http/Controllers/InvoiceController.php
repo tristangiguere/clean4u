@@ -84,7 +84,7 @@ class InvoiceController extends Controller
         return view('admin.invoice', ['invoice'=>$invoice]);
     }
 
-    function downloadInvoicePDF($id){
+    function viewInvoicePDF($id){
         $invoice = Invoice::find($id);
         $pdf = PDF::loadView('admin.download-invoice', ['invoice'=>$invoice])->setOptions(['defaultFont' => 'sans-serif']);
         return $pdf->stream('Clean4U Invoice #' . $id . '.pdf');

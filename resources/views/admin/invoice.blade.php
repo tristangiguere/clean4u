@@ -7,7 +7,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h1 id="invoice-title" style="margin: 0px;">Invoice #{{$invoice->id}}</h1>
                     </div>
-                    <div><button class="btn btn-primary quote-action-button" type="button">Edit</button><button class="btn btn-primary quote-action-button" type="button" style="margin-right: 10px;margin-left: 10px;background-color: #bc251a;border-color: #bc251a;">Archive</button><button class="btn btn-primary quote-action-button" type="button" style="background-color: black;border-color: black;">Download</button></div>
+                    <div><button class="btn btn-primary quote-action-button" type="button" style="margin-right: 10px;margin-left: 10px;background-color: #bc251a;border-color: #bc251a;">Archive</button><a href="{{$invoice->id}}/download/"><button class="btn btn-primary quote-action-button" type="submit" style="background-color: black;border-color: black;color:white;">Download</button></a></div>
                 </div>
             </div>
             <div class="container">

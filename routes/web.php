@@ -42,6 +42,7 @@ Route::get('/admindashboard', function (){
 
 // --------  ALL ROUTES FOR ADMIN DASHBOARD  --------
 
+
 // All invoices
 Route::get('/admin/invoices', function (){
     return view('admin.invoices');
@@ -100,8 +101,11 @@ Route::get('admin/invoices/unpaid', [InvoiceController::class,'listAllUnpaid']);
 // All invoices (Paid)
 Route::get('admin/invoices/paid', [InvoiceController::class,'listAllPaid']);
 
+// View invoice PDF
+Route::get('admin/invoice/{id}/download', [InvoiceController::class,'viewInvoicePDF']);
+
 // Download invoice PDF
-Route::get('admin/invoice/{id}/download', [InvoiceController::class,'downloadInvoicePDF']);
+Route::get('admin/invoice/{id}/download/pdf', [InvoiceController::class,'downloadInvoice']);
 
 // Delete invoice
 Route::get('admin/invoice/{id}/delete', [InvoiceController::class,'deleteInvoice']);
