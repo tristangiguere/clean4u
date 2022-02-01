@@ -38,7 +38,6 @@ class AdminViewQuoteRequestTest extends DuskTestCase
                         // Check for header section
                         ->assertSee('Quotation request from ' . $qr->first_name . ' ' . $qr->last_name)
                         ->assertSee('Reply')
-                        ->assertSee('Archive')
 
                         // Check for customer information section
                         ->assertSee('REQUESTER INFORMATION')

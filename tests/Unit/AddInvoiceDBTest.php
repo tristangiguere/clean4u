@@ -15,7 +15,6 @@ class AddInvoiceDBTest extends TestCase
 
     public function testAddInvoiceToDb()
     {
-
         date_default_timezone_set('America/Toronto');
 
         $invoice = new Request;

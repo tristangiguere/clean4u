@@ -14,7 +14,7 @@ class DeleteInvoiceTest extends TestCase
      // Auto-rollback all DB operations that are part of this test case.
      use DatabaseTransactions;
 
-     public function testAddInvoiceToDb()
+     public function testDeleteInvoiceFromDb()
      {
          date_default_timezone_set('America/Toronto');
  

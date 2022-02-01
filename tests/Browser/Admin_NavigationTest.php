@@ -89,7 +89,7 @@ class AdminNavigationTest extends DuskTestCase
                             ->assertSee($quoteRequest->created_at)
                             ->assertSee($quoteRequest->status)
                             ->assertSee($combinedName)
-                            ->assertSee('View  |  Archive');
+                            ->assertSee('View  |  Delete');
                       }
         });
     }

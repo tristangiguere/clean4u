@@ -8,7 +8,7 @@ use Tests\TestCase;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class AddQuotationDBTest extends TestCase
+class AddQuotationRequestDBTest extends TestCase
 {
     // Auto-rollback all DB operations that are part of this test case.
     use DatabaseTransactions;
