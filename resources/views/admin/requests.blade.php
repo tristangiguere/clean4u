@@ -8,7 +8,7 @@
                         <h1 id="invoice-title" style="margin: 0px;">Quotation Requests</h1>
                     </div>
                     <div class="d-flex align-items-md-center align-items-xl-center">
-                        <p class="customer-info-header" style="opacity: 50%;font-size: 12px;">Pending&nbsp; |&nbsp; Completed&nbsp; |<strong>&nbsp; All</strong></p>
+                        <!-- <p class="customer-info-header" style="opacity: 50%;font-size: 12px;">Pending&nbsp; |&nbsp; Completed&nbsp; |<strong>&nbsp; All</strong></p>-->
                     </div>
                 </div>
             </div>
@@ -38,22 +38,22 @@
                             </div>
                         </div>
 
-                        @foreach($quotationRequests as $quoteRequest)
+                        @foreach($requests as $request)
                         <div class="row itemrow">
                             <div class="col-md-2 col-lg-1 col-xl-1">
-                                <p class="customer-info-header"><a href="request/{{$quoteRequest->id}}">{{$quoteRequest->id}}</a></p>
+                                <p class="customer-info-header"><a href="request/{{$request['id']}}"></a>{{$request['id']}}</p>
                             </div>
                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                <p class="customer-info-header">{{$quoteRequest->created_at}}</p>
+                                <p class="customer-info-header">{{$request['created_at']}}</p>
                             </div>
                             <div class="col-md-2 col-lg-1 col-xl-1">
-                                <p class="customer-info-header">{{$quoteRequest->status}}</p>
+                                <p class="customer-info-header">{{$request['status']}}</p>
                             </div>
                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                <p class="customer-info-header">{{$quoteRequest->first_name}} {{$quoteRequest->last_name}}</p>
+                                <p class="customer-info-header">{{$request['first_name']}} {{$request['last_name']}}</p>
                             </div>
                             <div class="col text-end d-md-flex d-xl-flex justify-content-lg-end justify-content-xl-end">
-                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="request/{{$quoteRequest->id}}">View</a>&nbsp; |&nbsp; <a href="request/{{$quoteRequest->id}}/delete" onclick="return confirm('Are you sure you want to delete Quotation Request #{{$quoteRequest->id}}? This action is irreversible.');">Delete</a></strong></p>
+                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="request/{{$request['id']}}">View</a>&nbsp; |&nbsp; <a href="request/{{$request['id']}}/delete" onclick="return confirm('Are you sure you want to delete Quotation Request #{{$request['id']}}? This action is irreversible.');">Delete</a></strong></p>
                             </div>
                         </div>
                         <div class="row itemrow">

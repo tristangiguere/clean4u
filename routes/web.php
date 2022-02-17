@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuotationRequestController;
 use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\MailController;
+use App\Http\Controllers\QuoteController;
 
 Route::get('/', function () {
     return view('home');
@@ -23,8 +23,6 @@ Route::get('/contact', function(){
     return view('contact');
 });
 
-
-
 Route::get('/login', function (){
     return view('login');
 });
@@ -32,6 +30,10 @@ Route::get('/login', function (){
 Route::get('/admindashboard', function (){
     return view('/admin/dashboard');
 })->middleware('authenticated');
+
+// VIEW INVOICE (PUBLIC)
+// Single request
+Route::get('customer/invoice/{uuid}', [InvoiceController::class,'viewPublic']);
 
 
 
@@ -87,13 +89,20 @@ Route::get('/admin/invoice/new', function (){
     return view('admin.addinvoice');
 });
 
+
+// Add new invoice
 Route::post('/admin/invoice/new', [InvoiceController::class,'addData']);
 
-// Single invoice
-Route::get('admin/invoice/{id}', [InvoiceController::class,'viewSingle']);
+
+
+// Delete invoice
+Route::get('admin/invoice/{id}/cancel', [InvoiceController::class,'cancelInvoice']);
 
 // All invoices
 Route::get('admin/invoices', [InvoiceController::class,'listAll']);
+
+// Single invoice
+Route::get('admin/invoice/{id}', [InvoiceController::class,'viewSingle']);
 
 // All invoices (Unpaid)
 Route::get('admin/invoices/unpaid', [InvoiceController::class,'listAllUnpaid']);
@@ -107,8 +116,6 @@ Route::get('admin/invoice/{id}/download', [InvoiceController::class,'viewInvoice
 // Download invoice PDF
 Route::get('admin/invoice/{id}/download/pdf', [InvoiceController::class,'downloadInvoice']);
 
-// Delete invoice
-Route::get('admin/invoice/{id}/delete', [InvoiceController::class,'deleteInvoice']);
 
 // Send invoice
 Route::get('admin/invoice/{id}/send', [InvoiceController::class,'sendInvoice']);

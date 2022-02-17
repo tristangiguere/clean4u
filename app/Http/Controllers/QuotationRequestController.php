@@ -3,54 +3,77 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\QuotationRequest;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
 
 class QuotationRequestController extends Controller
 {
     function addData(Request $req){
-
-        date_default_timezone_set('America/Toronto');
-
-        $quotationRequest=new QuotationRequest;
-        $quotationRequest->first_name=$req->first_name;
-        $quotationRequest->last_name=$req->last_name;
-        $quotationRequest->phone=$req->phone;
-        $quotationRequest->type=$req->type;
-        $quotationRequest->year=$req->year;
-        $quotationRequest->make=$req->make;
-        $quotationRequest->model=$req->model;
-        $quotationRequest->services=$req->services;
-        $quotationRequest->email=$req->email;
-        $quotationRequest->created_at = date(('Y-m-d h:i:sa'));
-        $quotationRequest->status = "New";
-        $quotationRequest->save();
-        return redirect('quote');
+            $response = Http::post('localhost:3000/api/requests', [
+            "first_name" => $req->first_name,
+            "last_name" => $req->last_name,
+            "email" => $req->email,
+            "phone" => $req->phone,
+            "type" => $req->type,
+            "make" => $req->make,
+            "model" => $req->model,
+            "year" => $req->year,
+            "services" => $req->services
+    ]);
+        if ($response->status() == 200){
+            return redirect('admin/quotes');
+        }
+        else{
+            return dd($response->body());
+        }
     }
 
     function listAll(){
-        $quotationRequests = QuotationRequest::all();
-        return view('admin.requests', ['quotationRequests'=>$quotationRequests]);
+        $response = Http::get('localhost:3000/api/requests');
+        $requests = $response->json();
+
+        if ($response->status() == 200){
+            return view('admin.requests', ['requests'=>$requests, 'status'=>'all']);
+        }
+        else{
+            dd($response->body());
+        }
     }
 
     function viewSingle($id){
-        $quoteRequest = QuotationRequest::find($id);
-        return view('admin.request', ['quoteRequest'=>$quoteRequest]);
+        $response = Http::get('localhost:3000/api/requests/' . $id);
+        $request = $response->json();
+
+        if ($response->status() == 200){
+            return view('admin.request', ['request'=>$request]);
+        }
+        else{
+            dd($response->body());
+        }
     }
 
     function replyToRequest($id, Request $req){
-        $quoteRequest = QuotationRequest::find($id);
-        
-        $data = [
-            'email' => $quoteRequest->email,
-            'reply' => $req->reply,
-        ];
+        $response = Http::post('localhost:3000/api/requests/' . $id . '/reply', [
+                "message" => $req->reply
+        ]);
 
-        $result = (new MailController)->replyToRequest($data);
+        if ($response->status() == 200){
+            return redirect('admin/requests');
+        }
+        else{
+            return dd($response->body());
+        }
     }
 
     function deleteRequest($id){
-        $quoteRequest = QuotationRequest::destroy($id);
-        return redirect('/admin/requests');
+        $response = Http::delete('localhost:3000/api/requests/' . $id);
+
+        if ($response->status() == 200){
+            return redirect('admin/requests');
+        }
+        else{
+            return dd($response->body());
+        }
     }
 }
