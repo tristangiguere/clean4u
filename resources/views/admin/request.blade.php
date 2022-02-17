@@ -102,7 +102,7 @@
                         <div class="row itemrow">
                         <form action="" method="POST">
                             @csrf
-                            <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12"><textarea style="padding: 10px;border: none;border-radius: 3.5px;width: 100%;font-size: 14px;min-height: 150px;" name="reply"></textarea><button class="btn btn-primary quote-action-button" type="submit" style="margin-top: 15px;font-size: 12px;">Send message</button></div>
+                            <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12"><textarea style="padding: 10px;border: none;border-radius: 3.5px;width: 100%;font-size: 14px;min-height: 150px;" name="reply" required></textarea><button class="btn btn-primary quote-action-button" type="submit" style="margin-top: 15px;font-size: 12px;">Send message</button></div>
                             </form>
                         </div>
                     </div>

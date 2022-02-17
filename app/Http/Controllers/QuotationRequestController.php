@@ -22,7 +22,7 @@ class QuotationRequestController extends Controller
             "services" => $req->services
     ]);
         if ($response->status() == 200){
-            return redirect('admin/quotes');
+            return redirect('quote');
         }
         else{
             return dd($response->body());

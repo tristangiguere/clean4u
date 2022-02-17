@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuotationRequestController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('home');
@@ -17,8 +18,6 @@ Route::view('quote', 'soumission');
 
 Route::post('quote', [QuotationRequestController::class,'addData']);
 
-Route::post('contact', [MailController::class,'sendEmail']);
-
 Route::get('/contact', function(){
     return view('contact');
 });
@@ -27,17 +26,20 @@ Route::get('/login', function (){
     return view('login');
 });
 
-Route::get('/admindashboard', function (){
-    return view('/admin/dashboard');
-})->middleware('authenticated');
+// Route::get('/admindashboard', function (){
+//     return view('/admin/dashboard');
+// })->middleware('authenticated');
 
 // VIEW INVOICE (PUBLIC)
 // Single request
 Route::get('customer/invoice/{uuid}', [InvoiceController::class,'viewPublic']);
 
-// VIEW INVOICE (PUBLIC)
+// VIEW QUOTATION (PUBLIC)
 // Single request
 Route::get('customer/quote/{uuid}', [QuoteController::class,'viewPublic']);
+
+// Post contact form
+Route::post('contact', [ContactController::class,'sendForm']);
 
 
 
