@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
 
@@ -11,8 +10,7 @@ class QuoteController extends Controller
 {
     function addData(Request $req){
 
-        $response = Http::post('localhost:3000/api/invoices', [
-
+        $response = Http::post('localhost:3000/api/quotations', [
                 "name" => $req->name,
                 "email"=> $req->email,
                 "phone" => $req->phone,
@@ -22,9 +20,12 @@ class QuoteController extends Controller
                 "province" => $req->province,
                 "country" => $req->country,
                 "postal_code" => $req->postal,
-                "terms" => $req->terms,
+                "type" => $req->type,
+                "make" => $req->make,
+                "model" => $req->model,
+                "year" => $req->year,
                 "notes" => $req->notes,
-                "due_date" => $req->due_date,
+                "expiration_date" => $req->due_date,
                 "product_1" => $req->product_1,
                 "description_1" => $req->description_1,
                 "price_1" => $req->price_1,
@@ -49,7 +50,7 @@ class QuoteController extends Controller
         ]);
 
         if ($response->status() == 200){
-            return redirect('admin/invoices');
+            return redirect('admin/quotes');
         }
         else{
             return dd($response->body());
@@ -57,35 +58,11 @@ class QuoteController extends Controller
     }
 
     function listAll(){
-        $response = Http::get('localhost:3000/api/invoices');
-        $invoices = $response->json();
+        $response = Http::get('localhost:3000/api/quotations');
+        $quotations = $response->json();
 
         if ($response->status() == 200){
-            return view('admin.invoices', ['invoices'=>$invoices, 'status'=>'all']);
-        }
-        else{
-            dd($response->body());
-        }
-    }
-
-    function listAllUnpaid(){
-        $response = Http::get('localhost:3000/api/invoices/unpaid');
-        $invoices = $response->json();
-
-        if ($response->status() == 200){
-            return view('admin.invoices', ['invoices'=>$invoices, 'status'=>'unpaid']);
-        }
-        else{
-            dd($response->body());
-        }
-    }
-
-    function listAllPaid(){
-        $response = Http::get('localhost:3000/api/invoices/paid');
-        $invoices = $response->json();
-
-        if ($response->status() == 200){
-            return view('admin.invoices', ['invoices'=>$invoices, 'status'=>'paid']);
+            return view('admin.quotes', ['quotations'=>$quotations, 'status'=>'all']);
         }
         else{
             dd($response->body());
@@ -93,11 +70,11 @@ class QuoteController extends Controller
     }
 
     function viewSingle($id){
-        $response = Http::get('localhost:3000/api/invoices/' . $id);
-        $invoice = $response->json();
+        $response = Http::get('localhost:3000/api/quotations/' . $id);
+        $quotation = $response->json();
 
         if ($response->status() == 200){
-            return view('admin.invoice', ['invoice'=>$invoice]);
+            return view('admin.quote', ['quotation'=>$quotation]);
         }
         else{
             dd($response->body());
@@ -105,59 +82,30 @@ class QuoteController extends Controller
     }
 
     function viewPublic($uuid){
-        $response = Http::get('localhost:3000/api/public/invoices/' . $uuid);
-        $invoice = $response->json();
+        $response = Http::get('localhost:3000/api/public/quotations/' . $uuid);
+        $quotation = $response->json();
 
         if ($response->status() == 200){
-            return view('customer.invoice', ['invoice'=>$invoice]);
+            return view('customer.quote', ['quotation'=>$quotation]);
         }
         else{
             dd($response->body());
         }
     }
 
-    function cancelInvoice($id){
-        $invoice = Http::put('localhost:3000/api/invoices/' . $id . '/cancel');
-        if ($invoice->status() == 200){
-            return redirect('/admin/invoices');
+    function cancelQuotation($id){
+        $quotation = Http::put('localhost:3000/api/quotations/' . $id . '/cancel');
+        if ($quotation->status() == 200){
+            return redirect('/admin/quotes');
         }
     }
 
-    function viewInvoicePDF($id){
-        try{
-            $url = 'localhost:3000/api/invoices/' . $id . '/pdf';
-            $client = new Client();
-            $response = $client->get($url);
+    function sendQuotation($id){
 
-            if ($response->getStatusCode() !== 200){
-                echo "Error.";
-                return;
-            }
-
-            $file = $response->getBody()->getContents();
-
-            $filename = 'Invoice #' . $id . '.pdf';
-
-            $headers = [
-                "Content-Type" => 'application/pdf',
-                "Content-Disposition" => "inline; filename=" . $filename . ";"
-            ];
-
-            return response()->streamDownload(function () use ($file) {
-                echo $file;
-            }, $filename, $headers);
+        $quotation = Http::post('localhost:3000/api/quotations/' . $id . '/send');
+        if ($quotation->status() == 200){
+            return redirect('/admin/quotes');
         }
-        catch(Exception $e){
-        }
-    }
-
-    function sendInvoice($id){
-
-        $invoice = Http::post('localhost:3000/api/invoices/' . $id . '/send');
-        if ($invoice->status() == 200){
-            return redirect('/admin/invoices');
-        }
-
-        dd('Invoice sent successfully');
+        dd('Quotation sent successfully');
     }
 }

@@ -77,7 +77,7 @@
                                 <p class="customer-info-header">{{substr($invoice['created_date'], 0, -14)}}</p>
                             </div>
                             <div class="col text-end d-md-flex d-xl-flex justify-content-md-end justify-content-xl-end">
-                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="/admin/invoice/{{$invoice['id']}}">View</a>&nbsp; |&nbsp; <a href="invoice/{{$invoice['id']}}/cancel" onclick="return confirm('Are you sure you want to archive Invoice #{{$invoice['id']}}?');">Archive</a>&nbsp; |&nbsp; <a href="/admin/invoice/{{$invoice['id']}}/download">Download</a>&nbsp; |&nbsp; <a href="invoice/{{$invoice['id']}}/send" onclick="return confirm('Are you sure you want to send Invoice #{{$invoice['id']}} to customer?');">Email</a></strong></p>
+                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="/admin/invoice/{{$invoice['id']}}">View</a>&nbsp; |&nbsp; <a href="invoice/{{$invoice['id']}}/cancel" onclick="return confirm('Are you sure you want to archive Invoice #{{$invoice['id']}}?');">Archive</a>&nbsp; |&nbsp; <a href="/admin/invoice/{{$invoice['id']}}/download">Download</a>&nbsp; |&nbsp; <a href="invoice/{{$invoice['id']}}/send" onclick="return confirm('Are you sure you want to send Invoice #{{$invoice['id']}} to customer?');">Send</a></strong></p>
                             </div>
                         </div>
                         <div class="row itemrow">

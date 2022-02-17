@@ -35,6 +35,10 @@ Route::get('/admindashboard', function (){
 // Single request
 Route::get('customer/invoice/{uuid}', [InvoiceController::class,'viewPublic']);
 
+// VIEW INVOICE (PUBLIC)
+// Single request
+Route::get('customer/quote/{uuid}', [QuoteController::class,'viewPublic']);
+
 
 
 
@@ -43,29 +47,6 @@ Route::get('customer/invoice/{uuid}', [InvoiceController::class,'viewPublic']);
 
 
 // --------  ALL ROUTES FOR ADMIN DASHBOARD  --------
-
-
-// All invoices
-Route::get('/admin/invoices', function (){
-    return view('admin.invoices');
-});
-
-// Single invoice
-Route::get('/admin/invoice', function (){
-    return view('admin.invoice');
-});
-
-// All quotes
-Route::get('/admin/quotes', function (){
-    return view('admin.quotes');
-});
-
-// Single quote
-Route::get('/admin/quote', function (){
-    return view('admin.quote');
-});
-
-
 
 // All requests
 Route::get('admin/requests', [QuotationRequestController::class,'listAll']);
@@ -89,14 +70,30 @@ Route::get('/admin/invoice/new', function (){
     return view('admin.addinvoice');
 });
 
+// Single quote
+Route::get('/admin/quote/new', function (){
+    return view('admin.addquote');
+});
+
+// All quotes
+Route::get('admin/quotes', [QuoteController::class,'listAll']);
+
+
+// View single quote
+Route::get('admin/quotes/{id}', [QuoteController::class,'viewSingle']);
+
 
 // Add new invoice
 Route::post('/admin/invoice/new', [InvoiceController::class,'addData']);
 
-
+// Add new quote
+Route::post('/admin/quote/new', [QuoteController::class,'addData']);
 
 // Delete invoice
 Route::get('admin/invoice/{id}/cancel', [InvoiceController::class,'cancelInvoice']);
+
+// Cancel quotation
+Route::get('admin/quote/{id}/cancel', [QuoteController::class,'cancelQuotation']);
 
 // All invoices
 Route::get('admin/invoices', [InvoiceController::class,'listAll']);
@@ -119,6 +116,9 @@ Route::get('admin/invoice/{id}/download/pdf', [InvoiceController::class,'downloa
 
 // Send invoice
 Route::get('admin/invoice/{id}/send', [InvoiceController::class,'sendInvoice']);
+
+// Send invoice
+Route::get('admin/quote/{id}/send', [QuoteController::class,'sendQuotation']);
 
 
 

@@ -82,7 +82,7 @@ $(document).ready(function(){
             <div class="container" style="margin-bottom: 20px;padding-left: 0px;padding-right: 0px;">
                 <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 30px;">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h1 id="invoice-title" style="margin: 0px;">New Invoice</h1>
+                        <h1 id="invoice-title" style="margin: 0px;">New Quotation</h1>
                     </div>
                     <form action="new" method="POST">
                     @csrf
@@ -135,24 +135,43 @@ $(document).ready(function(){
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-5 col-xl-5 customer-info-column">
-                        <p style="position: absolute;margin-top: -33px;font-weight: bold;text-transform: uppercase;/*z-index: 10000;*/background-color: black;padding-left: 10px;padding-right: 10px;border-radius: 12px;font-size: 13px;letter-spacing: 1px;padding-top: 3px;padding-bottom: 3px;color: white;">INVOICE DETAILS</p>
+                        <p style="position: absolute;margin-top: -33px;font-weight: bold;text-transform: uppercase;/*z-index: 10000;*/background-color: black;padding-left: 10px;padding-right: 10px;border-radius: 12px;font-size: 13px;letter-spacing: 1px;padding-top: 3px;padding-bottom: 3px;color: white;">QUOTATION DETAILS</p>
                         <div class="row">
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Due Date</p><input class="invoice-field" type="date" name="due_date" required>
+                                    <p class="customer-info-header">Expiration Date</p><input class="invoice-field" type="date" name="due_date" required>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Payment Terms</p><select class="invoice-field" style="padding-left: 3px!important;" name="terms" required>
-                                        <option value="0" selected="">On Receipt</option>
-                                        <option value="30">Net 30</option>
-                                        <option value="60">Net 60</option>
-                                        <option value="90">Net 90</option>
+                                <p class="customer-info-header">Vehicle Type</p><select class="invoice-field" style="padding-left: 3px!important;" name="type" required>
+                                        <option value="Car" selected="">Car</option>
+                                        <option value="Boat">Boat</option>
+                                        <option value="Motorcycle">Motorcycle</option>
+                                        <option value="RV">RV</option>
                                     </select>
                                     <input type="hidden" name="subtotal" id="subtotal_input"></input>
                                     <input type="hidden" name="taxTotal" id="taxtotal_input"></input>
                                     <input type="hidden" name="total" id="total_input"></input>
+                                </div>
+                            </div>
+                            <div class="col">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="customer-info-section">
+                                    <p class="customer-info-header">Make</p><input class="invoice-field" name="make" type="text" style="width: 100%" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="customer-info-section">
+                                    <p class="customer-info-header">Model</p><input class="invoice-field" name="model" type="text" style="width: 100%">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="customer-info-section">
+                                    <p class="customer-info-header">Year</p><input class="invoice-field" name="year" type="number" value="2022" style="width: 100%" required>
                                 </div>
                             </div>
                         </div>
@@ -277,7 +296,7 @@ $(document).ready(function(){
                         <div class="row" style="padding-top: 5px;">
                             <div class="col">
                                 <div class="customer-info-section">
-                                    <p class="customer-info-header">Invoice Subtotal ($)</p>
+                                    <p class="customer-info-header">Quote Subtotal ($)</p>
                                     <p class="customer-info-content" id="subtotal">24.99$</p>
                                 </div>
                             </div>

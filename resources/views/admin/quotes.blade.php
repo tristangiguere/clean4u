@@ -8,7 +8,7 @@
                         <h1 id="invoice-title" style="margin: 0px;">Quotes</h1>
                     </div>
                     <div class="d-flex align-items-md-center align-items-xl-center">
-                        <p class="customer-info-header" style="opacity: 50%;margin-right: 20px;font-size: 12px;">Pending |&nbsp; Overdue&nbsp; |&nbsp; Partial&nbsp; |&nbsp; Paid&nbsp; |<strong>&nbsp; All</strong></p><button class="btn btn-primary quote-action-button" type="button" style="background-color: black;border-color: black;">New</button>
+                        <!-- <p class="customer-info-header" style="opacity: 50%;margin-right: 20px;font-size: 12px;">Pending |&nbsp; Overdue&nbsp; |&nbsp; Partial&nbsp; |&nbsp; Paid&nbsp; |<strong>&nbsp; All</strong></p>--><a href="/admin/quote/new"><button class="btn btn-primary quote-action-button" type="button" style="background-color: black;border-color: black;">New</button></a>
                     </div>
                 </div>
             </div>
@@ -43,27 +43,28 @@
                                 <hr>
                             </div>
                         </div>
+                        @foreach($quotations as $quotation)
                         <div class="row itemrow">
                             <div class="col-md-1 col-lg-1 col-xl-1">
-                                <p class="customer-info-header">121231</p>
+                                <p class="customer-info-header">{{$quotation['id']}}</p>
                             </div>
                             <div class="col-md-2 col-lg-1 col-xl-1">
-                                <p class="customer-info-header">2021-12-02</p>
+                                <p class="customer-info-header">{{substr($quotation['created_date'], 0, -14)}}</p>
                             </div>
                             <div class="col-md-2 col-lg-1 col-xl-1">
-                                <p class="customer-info-header">Approved</p>
+                                <p class="customer-info-header">{{$quotation['status']}}</p>
                             </div>
                             <div class="col-md-1 col-lg-1 col-xl-1">
-                                <p class="customer-info-header">2431.99 $</p>
+                                <p class="customer-info-header">{{$quotation['total']}}</p>
                             </div>
                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                <p class="customer-info-header">James St-James</p>
+                                <p class="customer-info-header">{{$quotation['name']}}</p>
                             </div>
                             <div class="col-md-1 col-lg-2 col-xl-2">
-                                <p class="customer-info-header">2021-12-02</p>
+                                <p class="customer-info-header">{{substr($quotation['expiration_date'], 0, -14)}}</p>
                             </div>
                             <div class="col text-end d-md-flex d-xl-flex justify-content-md-end justify-content-xl-end">
-                                <p class="customer-info-header" style="opacity: 50%;"><strong>View&nbsp; |&nbsp; Edit&nbsp; |&nbsp; Archive&nbsp; |&nbsp; Print</strong></p>
+                                <p class="customer-info-header" style="opacity: 50%;"><strong><a href="/admin/quotes/{{$quotation['id']}}">View</a>&nbsp; |&nbsp; <a href="quote/{{$quotation['id']}}/cancel" onclick="return confirm('Are you sure you want to cancel Quotation #{{$quotation['id']}}?');">Cancel</a>&nbsp;|&nbsp; <a href="quote/{{$quotation['id']}}/send" onclick="return confirm('Are you sure you want to send Quotation #{{$quotation['id']}} to customer?');">Send</a></strong></p>
                             </div>
                         </div>
                         <div class="row itemrow">
@@ -71,6 +72,7 @@
                                 <hr>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
