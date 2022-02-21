@@ -10,7 +10,9 @@ use GuzzleHttp\Client;
 class QuotationRequestController extends Controller
 {
     function addData(Request $req){
-            $response = Http::post('localhost:3000/api/requests', [
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $_ENV['API_KEY']
+            ])->post('localhost:3000/api/requests', [
             "first_name" => $req->first_name,
             "last_name" => $req->last_name,
             "email" => $req->email,
@@ -30,7 +32,9 @@ class QuotationRequestController extends Controller
     }
 
     function listAll(){
-        $response = Http::get('localhost:3000/api/requests');
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $_ENV['API_KEY']
+        ])->get('localhost:3000/api/requests');
         $requests = $response->json();
 
         if ($response->status() == 200){
@@ -42,7 +46,9 @@ class QuotationRequestController extends Controller
     }
 
     function viewSingle($id){
-        $response = Http::get('localhost:3000/api/requests/' . $id);
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $_ENV['API_KEY']
+        ])->get('localhost:3000/api/requests/' . $id);
         $request = $response->json();
 
         if ($response->status() == 200){
@@ -54,7 +60,9 @@ class QuotationRequestController extends Controller
     }
 
     function replyToRequest($id, Request $req){
-        $response = Http::post('localhost:3000/api/requests/' . $id . '/reply', [
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $_ENV['API_KEY']
+        ])->post('localhost:3000/api/requests/' . $id . '/reply', [
                 "message" => $req->reply
         ]);
 
@@ -67,7 +75,9 @@ class QuotationRequestController extends Controller
     }
 
     function deleteRequest($id){
-        $response = Http::delete('localhost:3000/api/requests/' . $id);
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $_ENV['API_KEY']
+        ])->delete('localhost:3000/api/requests/' . $id);
 
         if ($response->status() == 200){
             return redirect('admin/requests');

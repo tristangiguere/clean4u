@@ -10,7 +10,9 @@ use GuzzleHttp\Client;
 class ContactController extends Controller
 {
     function sendForm(Request $req){
-        $response = Http::post('localhost:3000/api/contact', [
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $_ENV['API_KEY']
+        ])->post('localhost:3000/api/contact', [
         "name" => $req->Name,
         "email" => $req->Email,
         "message" => $req->Message
