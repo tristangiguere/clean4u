@@ -7,7 +7,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h1 id="invoice-title" style="margin: 0px;">Invoice #{{$invoice['id']}}</h1>
                     </div>
-                    <div><a href="http://localhost:3000/api/public/invoices/{{$invoice['public_key']}}/pdf/"><button class="btn btn-primary quote-action-button" type="submit" style="background-color: black;border-color: black;color:white;">Download</button></a></div>
+                    <div><a href="{{ env('API_URL') }}/public/invoices/{{$invoice['public_key']}}/pdf/"><button class="btn btn-primary quote-action-button" type="submit" style="background-color: black;border-color: black;color:white;">Download</button></a></div>
                 </div>
             </div>
             <div class="container">
