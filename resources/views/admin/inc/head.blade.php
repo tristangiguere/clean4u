@@ -12,7 +12,7 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top clean-navbar" style="padding: 8px;background-color: black;">
-        <div class="container" style="padding-top:5px;padding-bottom:5px;"><div><a class="navbar-brand logo" href="<?php echo url('/admin/quotes');?>" style="color: white;"><strong>Clean4U</strong> Admin</a><p style="margin-bottom: 0px;color:white;font-size:14px;">Hello, {{ Session::get('username') }}. &nbsp;<a href="/logout" style="color:white;"><strong>Logout</strong></a></p></div><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container" style="padding-top:5px;padding-bottom:5px;"><div><a class="navbar-brand logo" href="<?php echo url('/admin/quotes');?>" style="color: white;"><strong>Clean4U</strong> Admin</a><p style="margin-bottom: 0px;color:white;font-size:14px;">Hello, <a href="/changepassword" style="color:white;">{{ Session::get('username') }}.</a> &nbsp;<a href="/logout" style="color:white;"><strong>Logout</strong></a></p></div><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="<?php echo url('/admin/quotes');?>" style="color: white;">QUOTES</a></li>

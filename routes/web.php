@@ -51,6 +51,10 @@ Route::get('dashboard', function () {
 // Restrict to authenticated users only.
 Route::middleware([AuthMW::class])->group(function () {
 
+        Route::get('changepassword', [CustomAuthController::class,'changePasswordForm']);
+
+        Route::post('changepassword', [CustomAuthController::class,'changepassword']);
+
         // All requests
         Route::get('admin/requests', [QuotationRequestController::class,'listAll']);
 

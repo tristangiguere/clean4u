@@ -45,6 +45,28 @@ class CustomAuthController extends Controller
         }
     }
 
+    function changepassword(Request $req){
+        $username = Session::get('username');
+        $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $_ENV['API_KEY']
+            ])->post(env('API_URL') . '/auth/login', [
+            "username" => $username,
+            "password" => $req->password,
+            "newpassword" => $req->newpassword
+        ]);
+
+        if ($response->status() == 200){
+            return redirect('admin/invoices');
+        }
+        else{
+            return dd($response->body());
+        }
+    }
+
+    function changePasswordForm(){
+            return view('admin.changepassword');
+    }
+
     
 
 
