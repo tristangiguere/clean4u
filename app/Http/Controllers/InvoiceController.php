@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
 
@@ -67,6 +66,7 @@ class InvoiceController extends Controller
 
         if ($response->status() == 200){
             return view('admin.invoices', ['invoices'=>$invoices, 'status'=>'all']);
+            
         }
         else{
             dd($response->body());

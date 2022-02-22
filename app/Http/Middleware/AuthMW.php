@@ -3,10 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
-class AuthenticatedMiddleware
+class AuthMW
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,15 @@ class AuthenticatedMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check())
+        $username = Session::get('username');
+        $auth = Session::get('authenticated');
+
+        if (($username !== "") && ($auth == "true")){
             return $next($request);
-        return redirect('/login');
+        }
+        else{
+            return redirect('/login');
+        }
+        
     }
 }
