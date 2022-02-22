@@ -10,5 +10,6 @@
         <i class="fa fa-twitter w3-hover-opacity"></i>
         <i class="fa fa-linkedin w3-hover-opacity"></i>
     </div>
-    <p>&copy; <?php echo date("Y"); ?> <a href="#" title="W3.CSS" target="_blank" class="w3-hover-text-green">Clean4U. All Rights Reserved.</a></p>
+    <p>&copy; <?php echo date("Y"); ?> <a href="#" title="W3.CSS" target="_blank" style="color:white;">Clean4U. All Rights Reserved.</a></p>
+    <p><a href="/login" style="color:grey;">Admin Login</a></p>
 </footer>
