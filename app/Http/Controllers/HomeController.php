@@ -16,24 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        
     }
-
-    function sendForm(Request $req){
-        $response = Http::post('localhost:3000/api/contact', [
-        "name" => $req->name,
-        "email" => $req->email,
-        "message" => $req->message
-    ]);
-
-    if ($response->status() == 200){
-        return redirect('contact');
-    }
-    else{
-        return dd($response->body());
-    }
-}
-
 
     /**
      * Show the application dashboard.

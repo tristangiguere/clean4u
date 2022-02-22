@@ -12,7 +12,7 @@ class QuotationRequestController extends Controller
     function addData(Request $req){
             $response = Http::withHeaders([
                 'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-            ])->post('localhost:3000/api/requests', [
+            ])->post(env('API_URL') . '/requests', [
             "first_name" => $req->first_name,
             "last_name" => $req->last_name,
             "email" => $req->email,
@@ -34,7 +34,7 @@ class QuotationRequestController extends Controller
     function listAll(){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->get('localhost:3000/api/requests');
+        ])->get(env('API_URL') . '/requests');
         $requests = $response->json();
 
         if ($response->status() == 200){
@@ -48,7 +48,7 @@ class QuotationRequestController extends Controller
     function viewSingle($id){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->get('localhost:3000/api/requests/' . $id);
+        ])->get(env('API_URL') . '/requests/' . $id);
         $request = $response->json();
 
         if ($response->status() == 200){
@@ -62,7 +62,7 @@ class QuotationRequestController extends Controller
     function replyToRequest($id, Request $req){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->post('localhost:3000/api/requests/' . $id . '/reply', [
+        ])->post(env('API_URL') . '/requests/' . $id . '/reply', [
                 "message" => $req->reply
         ]);
 
@@ -77,7 +77,7 @@ class QuotationRequestController extends Controller
     function deleteRequest($id){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->delete('localhost:3000/api/requests/' . $id);
+        ])->delete(env('API_URL') . '/requests/' . $id);
 
         if ($response->status() == 200){
             return redirect('admin/requests');

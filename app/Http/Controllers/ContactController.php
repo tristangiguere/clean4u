@@ -12,7 +12,7 @@ class ContactController extends Controller
     function sendForm(Request $req){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->post('localhost:3000/api/contact', [
+        ])->post(env('API_URL') . '/contact', [
         "name" => $req->Name,
         "email" => $req->Email,
         "message" => $req->Message

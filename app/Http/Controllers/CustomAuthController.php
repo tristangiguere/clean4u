@@ -13,7 +13,7 @@ class CustomAuthController extends Controller
     function login(Request $req){
         $response = Http::withHeaders([
                 'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-            ])->post('localhost:3000/api/auth/login', [
+            ])->post(env('API_URL') . '/auth/login', [
             "username" => $req->username,
             "password" => $req->password,
         ]);

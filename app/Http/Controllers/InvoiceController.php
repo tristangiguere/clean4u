@@ -13,7 +13,7 @@ class InvoiceController extends Controller
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->post('localhost:3000/api/invoices', [
+        ])->post(env('API_URL') . '/invoices', [
 
                 "name" => $req->name,
                 "email"=> $req->email,
@@ -61,7 +61,7 @@ class InvoiceController extends Controller
     function listAll(){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->get('localhost:3000/api/invoices');
+        ])->get(env('API_URL') . '/invoices');
         $invoices = $response->json();
 
         if ($response->status() == 200){
@@ -76,7 +76,7 @@ class InvoiceController extends Controller
     function listAllUnpaid(){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->get('localhost:3000/api/invoices/unpaid');
+        ])->get(env('API_URL') . '/invoices/unpaid');
         $invoices = $response->json();
 
         if ($response->status() == 200){
@@ -90,7 +90,7 @@ class InvoiceController extends Controller
     function listAllPaid(){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->get('localhost:3000/api/invoices/paid');
+        ])->get(env('API_URL') . '/invoices/paid');
         $invoices = $response->json();
 
         if ($response->status() == 200){
@@ -104,7 +104,7 @@ class InvoiceController extends Controller
     function viewSingle($id){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->get('localhost:3000/api/invoices/' . $id);
+        ])->get(env('API_URL') . '/invoices/' . $id);
         $invoice = $response->json();
 
         if ($response->status() == 200){
@@ -118,7 +118,7 @@ class InvoiceController extends Controller
     function viewPublic($uuid){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->get('localhost:3000/api/public/invoices/' . $uuid);
+        ])->get(env('API_URL') . '/public/invoices/' . $uuid);
         $invoice = $response->json();
 
         if ($response->status() == 200){
@@ -132,7 +132,7 @@ class InvoiceController extends Controller
     function cancelInvoice($id){
         $invoice = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->put('localhost:3000/api/invoices/' . $id . '/cancel');
+        ])->put(env('API_URL') . '/invoices/' . $id . '/cancel');
         if ($invoice->status() == 200){
             return redirect('/admin/invoices');
         }
@@ -140,7 +140,7 @@ class InvoiceController extends Controller
 
     function viewInvoicePDF($id){
         try{
-            $url = 'localhost:3000/api/invoices/' . $id . '/pdf';
+            $url = env('API_URL') . '/invoices/' . $id . '/pdf';
             $client = new Client(['headers' => ['Authorization' => 'Bearer ' . $_ENV['API_KEY']]]);
             $response = $client->get($url);
 
@@ -170,7 +170,7 @@ class InvoiceController extends Controller
 
         $invoice = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->post('localhost:3000/api/invoices/' . $id . '/send');
+        ])->post(env('API_URL') . '/invoices/' . $id . '/send');
         if ($invoice->status() == 200){
             return redirect('/admin/invoices');
         }

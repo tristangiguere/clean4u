@@ -12,7 +12,7 @@ class QuoteController extends Controller
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->post('localhost:3000/api/quotations', [
+        ])->post(env('API_URL') . '/quotations', [
                 "name" => $req->name,
                 "email"=> $req->email,
                 "phone" => $req->phone,
@@ -62,7 +62,7 @@ class QuoteController extends Controller
     function listAll(){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->get('localhost:3000/api/quotations');
+        ])->get(env('API_URL') . '/quotations');
         $quotations = $response->json();
 
         if ($response->status() == 200){
@@ -76,7 +76,7 @@ class QuoteController extends Controller
     function viewSingle($id){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->get('localhost:3000/api/quotations/' . $id);
+        ])->get(env('API_URL') . '/quotations/' . $id);
         $quotation = $response->json();
 
         if ($response->status() == 200){
@@ -90,7 +90,7 @@ class QuoteController extends Controller
     function viewPublic($uuid){
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->get('localhost:3000/api/public/quotations/' . $uuid);
+        ])->get(env('API_URL') . '/public/quotations/' . $uuid);
         $quotation = $response->json();
 
         if ($response->status() == 200){
@@ -104,7 +104,7 @@ class QuoteController extends Controller
     function cancelQuotation($id){
         $quotation = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->put('localhost:3000/api/quotations/' . $id . '/cancel');
+        ])->put(env('API_URL') . '/quotations/' . $id . '/cancel');
         if ($quotation->status() == 200){
             return redirect('/admin/quotes');
         }
@@ -114,7 +114,7 @@ class QuoteController extends Controller
 
         $quotation = Http::withHeaders([
             'Authorization' => 'Bearer ' . $_ENV['API_KEY']
-        ])->post('localhost:3000/api/quotations/' . $id . '/send');
+        ])->post(env('API_URL') . '/quotations/' . $id . '/send');
         if ($quotation->status() == 200){
             return redirect('/admin/quotes');
         }
