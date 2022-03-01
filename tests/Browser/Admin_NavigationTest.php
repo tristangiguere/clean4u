@@ -2,11 +2,15 @@
 
 namespace Tests\Browser;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
-use App\Models\QuotationRequest;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\CustomAuthController;
+ 
 
 class AdminNavigationTest extends DuskTestCase
 {
@@ -17,6 +21,14 @@ class AdminNavigationTest extends DuskTestCase
      */
     public function testNavigation_quotesList()
     {
+        $req = new Request([
+            "username"=>"admin",
+            "password"=>"admin"
+        ]);
+
+        // Login
+        app('App\Http\Controllers\CustomAuthController')->login($req);
+
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/quotes')
                     // Check for navbar
@@ -35,10 +47,22 @@ class AdminNavigationTest extends DuskTestCase
                     ->assertSee('Customer')
                     ->assertSee('Exp.');
         });
+
+        // Logout
+        app('App\Http\Controllers\CustomAuthController')->logout();
     }
 
     public function testNavigation_InvoicesList()
     {
+
+        $req = new Request([
+            "username"=>"admin",
+            "password"=>"admin"
+        ]);
+
+        // Login
+        app('App\Http\Controllers\CustomAuthController')->login($req);
+
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/invoices')
                     // Check for navbar
@@ -62,6 +86,15 @@ class AdminNavigationTest extends DuskTestCase
 
     public function testNavigation_RequestsList()
     {
+
+        $req = new Request([
+            "username"=>"admin",
+            "password"=>"admin"
+        ]);
+
+        // Login
+        app('App\Http\Controllers\CustomAuthController')->login($req);
+
         $this->browse(function (Browser $browser) {
             $browser->visit('/admin/requests')
                     // Check for navbar
@@ -77,11 +110,14 @@ class AdminNavigationTest extends DuskTestCase
                     ->assertSee('Customer')
                     ->assertSee('Actions');
 
-                    // Fetch all quote requests from database
-                    $quotationRequests = QuotationRequest::all();
+                    // Fetch all quote requests
+                     $response = Http::withHeaders([
+                    'Authorization' => 'Bearer ' . env('API_KEY')
+                    ])->get(env('API_URL') . '/requests');
+                    $requests = $response->json();
 
                     // Check if all quotes from the database appear in list
-                    foreach ($quotationRequests as $quoteRequest) {
+                    foreach ($requests as $quoteRequest) {
                         $combinedName = $quoteRequest->first_name . ' ' . $quoteRequest->last_name;
 
                         $browser
